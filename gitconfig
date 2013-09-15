@@ -1,0 +1,18 @@
+[user]
+	name = Alexander Ross
+	email = izepax@gmail.com
+[core]
+	editor = vim
+	excludesfile = /Users/ross/.gitignore_global
+[color]
+	ui = auto
+[alias]
+	root = !pwd
+[push]
+	default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

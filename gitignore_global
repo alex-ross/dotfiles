@@ -1,0 +1,38 @@
+# Ignore Vim files
+##################
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# Ignore Sublime Text 2 files
+#############################
+*.sublime-workspace
+
+# Ignore OSX files
+##################
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Ignore rbenv version files
+.ruby-version
+
+# Ignore Yard documentations
+.yardoc/
+
+
+# Project specifics that where i can't manage local gitignore
+#############################################################
+
+## socket core
+app/assets/wsdl/ws20130724-28005-a98ayg.wsdl
