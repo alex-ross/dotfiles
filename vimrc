@@ -1,3 +1,4 @@
+execute pathogen#infect()
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -15,7 +16,9 @@ highlight LineNr ctermbg=233 ctermfg=8 " Highlights linenumber
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
-set showmode                    "Show current mode down the bottom
+" deactivated becouse we use status line instead "
+"set showmode                    "Show current mode down the bottom
+set laststatus=2                "Show status line
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
@@ -47,6 +50,8 @@ let mapleader=","
 if filereadable(expand("~/.vim/vundles.vim"))
   source ~/.vim/vundles.vim
 endif
+
+" ================== General keymaps ================ "
 
 " ================ Turn Off Swap Files ==============
 
