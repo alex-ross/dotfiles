@@ -9,22 +9,28 @@ if filereadable(expand("~/.vimrc.before"))
   source ~/.vimrc.before
 endif
 
-" ================ General Config ====================
 
+" ================ Colorscheme =======================
+syntax enable
+set background=dark             "Use dark background
+let g:solarized_termtrans = 1
+let g:solarized_termcolors = 256
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+colorscheme solarized
+
+" ================ General Config ====================
 set number                      "Line numbers are good
 highlight LineNr ctermbg=233 ctermfg=8 " Highlights linenumber
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
-" deactivated becouse we use status line instead "
-"set showmode                    "Show current mode down the bottom
 set laststatus=2                "Show status line
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set mouse=a                     "Lets you set marker and select text using mouse
 set bs=2                        "Makes backspace behave normal again
-"set t_Co=256                    "Sets vim to 256 color mode
 
 " Makes copy and paste behave normal
 set pastetoggle=<F2>
@@ -35,8 +41,12 @@ set clipboard=unnamed
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-"turn on syntax highlighting
-syntax on
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x

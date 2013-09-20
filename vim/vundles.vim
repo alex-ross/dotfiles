@@ -10,6 +10,7 @@
 " Filetype off is required by vundle
 filetype off
 
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -24,16 +25,20 @@ Bundle "gmarik/vundle"
 Bundle "kien/ctrlp.vim"
 Bundle 'scrooloose/nerdtree'
 Bundle "jistr/vim-nerdtree-tabs.git"
+Bundle 'rking/ag.vim'
 
 " General text editing improvments
 " --------------------------------
 Bundle "Raimondi/delimitMate"
 Bundle "tomtom/tcomment_vim.git"
 Bundle "terryma/vim-multiple-cursors"
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-endwise'
 
-" File information helpers
+" Git plugins
 " ------------------------
 Bundle 'airblade/vim-gitgutter'
+Bundle 'tpope/vim-fugitive'
 
 " Cosmetics, color scheme, powerline...
 " -------------------------------------
@@ -44,20 +49,17 @@ Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'lsdr/monokai'
 Bundle 'jpo/vim-railscasts-theme'
+Bundle 'altercation/vim-colors-solarized'
 
-" Html, Xml, Css, Markdown...
-Bundle "claco/jasmine.vim"
-Bundle "digitaltoad/vim-jade.git"
-Bundle "groenewege/vim-less.git"
-Bundle "itspriddle/vim-jquery.git"
-Bundle "jtratner/vim-flavored-markdown.git"
-Bundle "kchmck/vim-coffee-script"
-Bundle "nelstrom/vim-markdown-preview"
-Bundle "skwp/vim-html-escape"
-Bundle "slim-template/vim-slim.git"
-Bundle "timcharper/textile.vim.git"
-Bundle "tpope/vim-haml"
-Bundle "wavded/vim-stylus"
+" Aditional syntaxes such as coffescript and slim-lang
+Bundle 'slim-template/vim-slim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'alex-ross/vim-rabl'
+Bundle 'othree/javascript-libraries-syntax.vim'
+
+" Plugins for ruby and ruby on rails
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-bundler'
 
 " Customization
 " The plugins listed in ~/.vim/.vundles.local will be added here to
