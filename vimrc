@@ -34,7 +34,9 @@ set bs=2                        "Makes backspace behave normal again
 
 " Makes copy and paste behave normal
 set pastetoggle=<F2>
-set clipboard=unnamed
+if $TMUX == ''
+  set clipboard+=unnamed
+endif
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -62,6 +64,9 @@ if filereadable(expand("~/.vim/vundles.vim"))
 endif
 
 " ================== General keymaps ================ "
+map <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
+map <C-t> <esc>:tabnew<CR>
 
 " ================ Turn Off Swap Files ==============
 
