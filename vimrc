@@ -22,6 +22,7 @@ colorscheme solarized
 " ================ General Config ====================
 set number                      "Line numbers are good
 highlight LineNr ctermbg=233 ctermfg=8 " Highlights linenumber
+
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
@@ -49,6 +50,7 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
+
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
@@ -131,4 +133,8 @@ set sidescrolloff=15
 set sidescroll=1
 
 
+" Improve performance of vim
+set ttyfast       " u got a fast terminal
+set ttyscroll=3
+set lazyredraw    " to avoid scrolling problems
 
