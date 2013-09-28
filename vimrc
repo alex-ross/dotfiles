@@ -23,15 +23,20 @@ colorscheme solarized
 set number                      "Line numbers are good
 highlight LineNr ctermbg=233 ctermfg=8
 
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set history=1000                "Store lots of :cmdline history
-set showcmd                     "Show incomplete cmds down the bottom
-set laststatus=2                "Show status line
-set gcr=a:blinkon0              "Disable cursor blink
-set visualbell                  "No sounds
-set autoread                    "Reload files changed outside vim
-set mouse=a                     "Lets you set marker and select text using mouse
-set bs=2                        "Makes backspace behave normal again
+set backspace=indent,eol,start  " Allow backspace in insert mode
+set history=1000                " Store lots of :cmdline history
+set showcmd                     " Show incomplete cmds down the bottom
+set laststatus=2                " Show status line
+set gcr=a:blinkon0              " Disable cursor blink
+set visualbell                  " No sounds
+set autoread                    " Reload files changed outside vim
+set mouse=a                     " Lets you set marker and select text using mouse
+set bs=2                        " Makes backspace behave normal again
+
+" Removes delay when hitting <esc>
+set noesckeys
+set ttimeout
+set ttimeoutlen=1
 
 " Makes copy and paste behave normal
 set pastetoggle=<F2>
