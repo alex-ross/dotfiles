@@ -51,6 +51,11 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+" Change cursor dependent on vi mode
+" FIXME: Does not work under tmux :-(
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
