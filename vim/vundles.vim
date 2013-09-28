@@ -25,6 +25,7 @@ Bundle "gmarik/vundle"
 Bundle "kien/ctrlp.vim"
 Bundle 'scrooloose/nerdtree'
 Bundle "jistr/vim-nerdtree-tabs.git"
+Bundle 'christoomey/vim-tmux-navigator'
 
 " For ag you need to install 'the_silver_searcher'
 " Read more here: https://github.com/rking/ag.vim
