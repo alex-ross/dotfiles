@@ -21,7 +21,7 @@ colorscheme solarized
 
 " ================ General Config ====================
 set number                      "Line numbers are good
-highlight LineNr ctermbg=233 ctermfg=8 " Highlights linenumber
+highlight LineNr ctermbg=233 ctermfg=8
 
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
@@ -69,6 +69,9 @@ endif
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
+
+command! Q q " Binds `:Q` to `:q`
+command! W w " Binds `:W` to `:w`
 
 " ================ Turn Off Swap Files ==============
 
