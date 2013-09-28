@@ -56,11 +56,22 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-" Change cursor dependent on vi mode
-" FIXME: Does not work under tmux :-(
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
+" Change cursor to bar in insert mode else box
+" Cursor types:
+"  0 = block
+"  1 = vertical bar
+"  2 = underscore
+if exists('$TMUX')
+  " Insert mode
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  " Normal mode
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  " Insert mode
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  " Normal mode
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
