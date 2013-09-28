@@ -34,7 +34,7 @@ set mouse=a                     " Lets you set marker and select text using mous
 set bs=2                        " Makes backspace behave normal again
 
 " Removes delay when hitting <esc>
-set noesckeys
+" set noesckeys " This couses arrow keys to not work under insertmode
 set ttimeout
 set ttimeoutlen=1
 
