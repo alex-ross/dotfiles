@@ -15,6 +15,11 @@ syntax enable
 set background=dark             "Use dark background
 let g:solarized_termtrans = 1
 let g:solarized_termcolors = 256
+if &t_Co >= 256 || has('gui_running')
+  let g:solarized_termcolors = 256
+else
+  let g:solarized_termcolors = 8
+endif
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 colorscheme solarized
