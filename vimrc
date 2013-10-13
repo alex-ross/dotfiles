@@ -45,9 +45,7 @@ set ttimeoutlen=1
 
 " Makes copy and paste behave normal
 set pastetoggle=<F2>
-if $TMUX == ''
-  set clipboard+=unnamed
-endif
+set clipboard+=unnamed
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
