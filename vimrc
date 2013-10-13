@@ -166,3 +166,22 @@ set ttyfast       " u got a fast terminal
 set ttyscroll=3
 set lazyredraw    " to avoid scrolling problems
 
+" ================= Functions ====================== "
+" Extract to variable
+" original source: https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+function! ExtractVariable()
+  let name = input("Variable name: ")
+  if name == ''
+    return
+  endif
+  " Reenter visual mode
+  normal! gv
+
+  " Replace selected text with the variable name
+  exec "normal c" . name
+  " Define the variable on the line above
+  exec "normal! O" . name . " = "
+  " Paste the original selected text to be the variable value
+  normal! $p
+endfunction
+vnoremap <leader>rv :call ExtractVariable()<cr>
