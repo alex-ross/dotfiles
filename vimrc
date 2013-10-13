@@ -31,7 +31,8 @@ set number                      "Line numbers are good
 highlight LineNr ctermbg=233 ctermfg=8
 
 set backspace=indent,eol,start  " Allow backspace in insert mode
-set history=1000                " Store lots of :cmdline history
+set history=500                 " Store lots of :cmdline history
+set viminfo='20,\"90,h,%        " Don't make .viminfo to large
 set showcmd                     " Show incomplete cmds down the bottom
 set laststatus=2                " Show status line
 set gcr=a:blinkon0              " Disable cursor blink
