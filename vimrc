@@ -15,8 +15,10 @@ syntax enable
 set background=dark             "Use dark background
 let g:solarized_termtrans = 1
 let g:solarized_termcolors = 256
+" Use 256 colors if terminal or vim client can handle it
 if &t_Co >= 256 || has('gui_running')
   let g:solarized_termcolors = 256
+" Else we use 8 colors
 else
   let g:solarized_termcolors = 8
 endif
@@ -64,15 +66,13 @@ endif
 "  0 = block
 "  1 = vertical bar
 "  2 = underscore
+" &t_SI is for insert mode
+" &t_EI is for normal mode
 if exists('$TMUX')
-  " Insert mode
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  " Normal mode
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 else
-  " Insert mode
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  " Normal mode
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
