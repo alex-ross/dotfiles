@@ -14,7 +14,6 @@ endif
 syntax enable
 set background=dark             "Use dark background
 let g:solarized_termtrans = 1
-let g:solarized_termcolors = 256
 " Use 256 colors if terminal or vim client can handle it
 if &t_Co >= 256 || has('gui_running')
   let g:solarized_termcolors = 256
@@ -22,14 +21,12 @@ if &t_Co >= 256 || has('gui_running')
 else
   let g:solarized_termcolors = 8
 endif
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
+let g:solarized_visibility = "high" " Available options 'low', 'normal' and 'high'
+let g:solarized_contrast = "high"   " Available options 'low', 'normal' and 'high'
 colorscheme solarized
 
 " ================ General Config ====================
 set number                      "Line numbers are good
-highlight LineNr ctermbg=233 ctermfg=8
-
 set backspace=indent,eol,start  " Allow backspace in insert mode
 set history=500                 " Store lots of :cmdline history
 set viminfo='20,\"90,h,%        " Don't make .viminfo to large
