@@ -41,7 +41,6 @@ Bundle 'tpope/vim-endwise'
 
 " Git plugins
 " ------------------------
-Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
 
 " Cosmetics, color scheme, powerline...
@@ -60,6 +59,7 @@ Bundle 'slim-template/vim-slim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'alex-ross/vim-rabl'
 Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'jtratner/vim-flavored-markdown'
 
 " Plugins for ruby and ruby on rails
 Bundle 'tpope/vim-rails'
