@@ -1,37 +1,64 @@
+" Stuff which needs to be first
+" =============================
+set nocompatible           " Use Vim settings, rather than Vi settings
+let mapleader=","          " Set leaderkey
+
+" Load pathogen plugins
 execute pathogen#infect()
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
 
-" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
-" source ~/.vimrc.before if it exists.
-if filereadable(expand("~/.vimrc.before"))
-  source ~/.vimrc.before
-endif
-
-
-" ================ Colorscheme =======================
+" Visual settings
+" ===============
 syntax enable
-set background=dark             "Use dark background
-let g:solarized_termtrans = 1
-" Use 256 colors if terminal or vim client can handle it
+
+" Use dark version
+" set background=dark
+set background=light
+" let g:solarized_termtrans = 1
+
 if &t_Co >= 256 || has('gui_running')
   let g:solarized_termcolors = 256
-" Else we use 8 colors
 else
   let g:solarized_termcolors = 8
 endif
-let g:solarized_visibility = "high" " Available options 'low', 'normal' and 'high'
-let g:solarized_contrast = "high"   " Available options 'low', 'normal' and 'high'
+
+" Available options for visibility and contrast
+"   - low
+"   - normal
+"   - high
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+
 colorscheme solarized
 
-" ================ General Config ====================
-set number                      "Line numbers are good
+set hlsearch                    " Highlight search results
+set number                      " Line numbers are good
+set laststatus=2                " Show status line
+
+" Change cursor to bar in insert mode else box
+" Cursor types:
+"  0 = block
+"  1 = vertical bar
+"  2 = underscore
+" &t_SI is for insert mode
+" &t_EI is for normal mode
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
+
+" General settings
+" ================
+set encoding=utf-8              " Default encoding
 set backspace=indent,eol,start  " Allow backspace in insert mode
 set history=500                 " Store lots of :cmdline history
 set viminfo='20,\"90,h,%        " Don't make .viminfo to large
 set showcmd                     " Show incomplete cmds down the bottom
-set laststatus=2                " Show status line
 set gcr=a:blinkon0              " Disable cursor blink
 set visualbell                  " No sounds
 set autoread                    " Reload files changed outside vim
@@ -52,33 +79,6 @@ set clipboard+=unnamed
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
-
-" Change cursor to bar in insert mode else box
-" Cursor types:
-"  0 = block
-"  1 = vertical bar
-"  2 = underscore
-" &t_SI is for insert mode
-" &t_EI is for normal mode
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
-
-" Change leader to a comma because the backslash is too far away
-" That means all \x commands turn into ,x
-" The mapleader has to be set before vundle starts loading all
-" the plugins.
-let mapleader=","
 
 " =============== Vundle Initialization ===============
 " This loads all the plugins specified in ~/.vim/vundle.vim
@@ -121,9 +121,6 @@ set expandtab
 
 filetype plugin on
 filetype indent on
-
-" Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
 
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
