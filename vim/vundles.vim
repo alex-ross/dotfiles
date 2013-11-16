@@ -64,6 +64,7 @@ Bundle 'jtratner/vim-flavored-markdown'
 " Plugins for ruby and ruby on rails
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-rbenv'
 
 " Customization
 " The plugins listed in ~/.vim/.vundles.local will be added here to
