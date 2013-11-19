@@ -65,6 +65,15 @@ set autoread                    " Reload files changed outside vim
 set mouse=a                     " Lets you set marker and select text using mouse
 set bs=2                        " Makes backspace behave normal again
 
+" Turn on spell checking
+"
+" ]s — move to the next misspelled word
+" [s — move to the previous misspelled word
+" zg — add a word to the dictionary
+" zug — undo the addition of a word to the dictionary
+" z= — view spelling suggestions for a misspelled word]
+set spell spelllang=en_us
+
 " Removes delay when hitting <esc>
 " set noesckeys " This couses arrow keys to not work under insertmode
 set ttimeout
