@@ -10,10 +10,13 @@ execute pathogen#infect()
 " ===============
 syntax enable
 
-" Use dark version
-" set background=dark
-set background=light
-" let g:solarized_termtrans = 1
+" Use 'dark' or 'light' background
+set background=dark
+if &background == 'dark'
+  let g:solarized_termtrans = 1
+endif
+
+
 
 if &t_Co >= 256 || has('gui_running')
   let g:solarized_termcolors = 256
@@ -31,8 +34,21 @@ let g:solarized_contrast = "high"
 colorscheme solarized
 
 set hlsearch                    " Highlight search results
-set number                      " Line numbers are good
 set laststatus=2                " Show status line
+
+" Line numbers
+set number
+if &background == 'dark'
+  highlight LineNr ctermfg=yellow ctermbg=0
+endif
+
+" Highlight column 80
+set colorcolumn=80
+if &background == 'dark'
+  highlight ColorColumn ctermbg=0
+elseif &background == 'light'
+  highlight ColorColumn ctermbg=187
+endif
 
 " Change cursor to bar in insert mode else box
 " Cursor types:
