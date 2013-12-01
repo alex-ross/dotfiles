@@ -8,7 +8,8 @@ cd ~/.dotfiles
 rake install
 ```
 
-Vim plugins are managed through vundle. You'll need to install vundle to get them.
+Vim plugins are managed through vundle. You'll need to install vundle to get
+them.
 
 ```bash
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
