@@ -101,11 +101,16 @@ set ttimeoutlen=1
 set pastetoggle=<F2>
 set clipboard+=unnamed
 
-" This makes vim act like all other editors, buffers can
+" This makes Vim act like all other editors, buffers can
 " exist in the background without being in a window.
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
 
 " =============== Vundle Initialization ===============
 " This loads all the plugins specified in ~/.vim/vundle.vim
