@@ -93,7 +93,7 @@ set bs=2                        " Makes backspace behave normal again
 set spell spelllang=en_us
 
 " Removes delay when hitting <esc>
-" set noesckeys " This couses arrow keys to not work under insertmode
+" set noesckeys " This causes arrow keys to not work under insert mode
 set ttimeout
 set ttimeoutlen=1
 
@@ -198,8 +198,8 @@ set sidescrolloff=15
 set sidescroll=1
 
 
-" Improve performance of vim
-set ttyfast       " u got a fast terminal
+" Improve performance of Vim
+set ttyfast       " You got a fast terminal
 set ttyscroll=3
 set lazyredraw    " to avoid scrolling problems
 
