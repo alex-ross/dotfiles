@@ -171,8 +171,19 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
+set complete=.,w,t
 
-"
+" will insert tab at beginning of line,
+" will use competition if not at beginning
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col -1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 
 " ================ Scrolling ========================
 
