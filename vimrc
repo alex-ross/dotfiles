@@ -44,6 +44,7 @@ endif
 
 " Highlight column 80
 set colorcolumn=80
+set numberwidth=5
 if &background == 'dark'
   highlight ColorColumn ctermbg=0
 elseif &background == 'light'
