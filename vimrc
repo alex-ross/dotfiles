@@ -198,6 +198,16 @@ set ttyfast       " u got a fast terminal
 set ttyscroll=3
 set lazyredraw    " to avoid scrolling problems
 
+
+" ================= AUGROUP ======================== "
+augroup vimrcEx
+  autocmd!
+
+  " Remove trailing whitespaces on save for certain files
+  autocmd BufWritePre *.js,*.rb,*.coffee :call <SID>StripTrailingWhitespaces()
+augroup END
+
+
 " ================= Functions ====================== "
 " Extract to variable
 " original source: https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
@@ -217,3 +227,19 @@ function! ExtractVariable()
   normal! $p
 endfunction
 vnoremap <leader>rv :call ExtractVariable()<cr>
+
+" Removes trailing whitespace
+function! s:StripTrailingWhitespaces()
+  " Prepare, save last search and cursor position
+  let _s=@/ " Last search
+  let l=line('.')
+  let c=col('.')
+
+  " Remove whitespaces
+  %s/\s\+$//e
+
+  " Restore cursor position and search result
+  let @/=_s
+  call cursor(l, c)
+endfunction
+command! StripWhitespace call <SID>StripTrailingWhitespaces()
