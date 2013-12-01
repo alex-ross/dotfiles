@@ -60,6 +60,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'alex-ross/vim-rabl'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'jtratner/vim-flavored-markdown'
+Bundle 'freitass/todo.txt-vim'
 
 " Plugins for ruby and ruby on rails
 Bundle 'tpope/vim-rails'
