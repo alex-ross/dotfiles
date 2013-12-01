@@ -82,6 +82,8 @@ set visualbell                  " No sounds
 set autoread                    " Reload files changed outside vim
 set mouse=a                     " Lets you set marker and select text using mouse
 set bs=2                        " Makes backspace behave normal again
+set hidden                      " Allows buffers to exists in background as hidden
+
 
 " Turn on spell checking
 "
@@ -101,10 +103,12 @@ set ttimeoutlen=1
 set pastetoggle=<F2>
 set clipboard+=unnamed
 
-" This makes Vim act like all other editors, buffers can
-" exist in the background without being in a window.
-" http://items.sjbach.com/319/configuring-vim-right
-set hidden
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -123,6 +127,9 @@ endif
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
+
+" Switch between last two files
+nnoremap <leader><leader> <c-^>
 
 command! Q q " Binds `:Q` to `:q`
 command! W w " Binds `:W` to `:w`
