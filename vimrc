@@ -66,8 +66,9 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-" Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
+" Display trailing whitespace
+set list
+set listchars=tab:»·,trail:·
 
 " General settings
 " ================
@@ -159,8 +160,8 @@ set nofoldenable        "dont fold by default
 
 " ================ Completion =======================
 
-set wildmode=list:longest
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildmode=list:longest,list:full
+set wildmenu                "enable ctrl-n and ctrl-p to scroll through matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 set wildignore+=*sass-cache*
