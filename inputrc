@@ -1,0 +1,5 @@
+# Use vi mode to navigate
+set editing-mode vi
+
+
+# set keymap vi-move
