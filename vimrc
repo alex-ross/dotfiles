@@ -208,6 +208,12 @@ set lazyredraw    " to avoid scrolling problems
 augroup vimrcEx
   autocmd!
 
+  " For all text files set 'textwidth' to 78 characters.
+  autocmd FileType text setlocal textwidth=78
+
+  " Automatically wrap at 80 characters for Markdown
+  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+
   " Remove trailing whitespaces on save for certain files
   autocmd BufWritePre *.js,*.rb,*.coffee :call <SID>StripTrailingWhitespaces()
 augroup END
