@@ -33,8 +33,8 @@ let g:solarized_contrast = "high"
 
 colorscheme solarized
 
-set hlsearch                    " Highlight search results
-set laststatus=2                " Show status line
+set hlsearch     " Highlight search results
+set laststatus=2 " Show status line
 
 " Line numbers
 set number
@@ -67,8 +67,7 @@ else
 endif
 
 " Display trailing whitespace
-set list
-set listchars=tab:»·,trail:·
+set list listchars=tab:»·,trail:·
 
 " General settings
 " ================
@@ -87,25 +86,20 @@ set hidden                      " Allows buffers to exists in background as hidd
 
 " Turn on spell checking
 "
-" ]s — move to the next misspelled word
-" [s — move to the previous misspelled word
-" zg — add a word to the dictionary
-" zug — undo the addition of a word to the dictionary
-" z= — view spelling suggestions for a misspelled word]
+" ]s  - move to the next misspelled word
+" [s  - move to the previous misspelled word
+" zg  - add a word to the dictionary
+" zug - undo the addition of a word to the dictionary
+" z=  - view spelling suggestions for a misspelled word]
 set spell spelllang=en_us
 
 " Removes delay when hitting <esc>
 " set noesckeys " This causes arrow keys to not work under insert mode
-set ttimeout
-set ttimeoutlen=1
+set ttimeout ttimeoutlen=1
 
 " Makes copy and paste behave normal
 set pastetoggle=<F2>
 set clipboard+=unnamed
-
-" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -133,6 +127,8 @@ nnoremap <leader><leader> <c-^>
 
 command! Q q " Binds `:Q` to `:q`
 command! W w " Binds `:W` to `:w`
+
+command! -nargs=* Wrap set wrap linebreak nolist
 
 " ================ Turn Off Swap Files ==============
 
@@ -226,7 +222,7 @@ augroup vimrcEx
 augroup END
 
 
-" ================= Functions ====================== "
+" ================# Other Functions #=============== "
 " Extract to variable
 " original source: https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 function! ExtractVariable()
@@ -261,3 +257,13 @@ function! s:StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 command! StripWhitespace call <SID>StripTrailingWhitespaces()
+
+
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunction
