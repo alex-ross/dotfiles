@@ -10,41 +10,37 @@
 " Filetype off is required by vundle
 filetype off
 
-
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle (required)
 Bundle "gmarik/vundle"
 
-" All your bundles here
+" ================ Bundles ============================ "
 
-
-" General vim improvments
-" -----------------------
+" ============== General Vim improvments ============== "
 Bundle "kien/ctrlp.vim"
 Bundle 'scrooloose/nerdtree'
 Bundle "jistr/vim-nerdtree-tabs.git"
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'sjl/gundo.vim'
 
 " For ag you need to install 'the_silver_searcher'
 " Read more here: https://github.com/rking/ag.vim
 Bundle 'rking/ag.vim'
 
-" General text editing improvments
-" --------------------------------
+" ======== General text editing improvments ========== "
 Bundle "Raimondi/delimitMate"
 Bundle "tomtom/tcomment_vim.git"
 Bundle "terryma/vim-multiple-cursors"
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
+Bundle 'godlygeek/tabular'
 
-" Git plugins
-" ------------------------
+" =============== Git Plugins ======================== "
 Bundle 'tpope/vim-fugitive'
 
-" Cosmetics, color scheme, powerline...
-" -------------------------------------
+" ====== Cosmetics, color schemes, powerline... ====== "
 Bundle "chrisbra/color_highlight.git"
 Bundle "bling/vim-airline.git"
 Bundle "bogado/file-line.git"
@@ -54,13 +50,14 @@ Bundle 'lsdr/monokai'
 Bundle 'jpo/vim-railscasts-theme'
 Bundle 'altercation/vim-colors-solarized'
 
-" Aditional syntaxes such as coffescript and slim-lang
+" = Aditional syntaxes such as coffescript and slim-lang = "
 Bundle 'slim-template/vim-slim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'alex-ross/vim-rabl'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'jtratner/vim-flavored-markdown'
 Bundle 'freitass/todo.txt-vim'
+Bundle 'scrooloose/syntastic'
 
 " Plugins for ruby and ruby on rails
 Bundle 'tpope/vim-rails'
