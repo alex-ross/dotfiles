@@ -125,6 +125,7 @@ map <C-t> <esc>:tabnew<CR>
 " Switch between last two files
 nnoremap <leader><leader> <c-^>
 
+" When 'q' is faster than 'shift'...
 command! Q q " Binds `:Q` to `:q`
 command! W w " Binds `:W` to `:w`
 
