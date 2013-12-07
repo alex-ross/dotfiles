@@ -73,6 +73,11 @@ map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
 
+" Global replace and ask for confirmation.
+" Cursor should be positioned so you only need to write something like
+" search/replace and then hit enter.
+nnoremap <leader>/ :%s/\v/gc<Left><Left><Left>
+
 " Switch between last two files
 nnoremap <leader><leader> <c-^>
 
