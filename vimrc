@@ -23,19 +23,10 @@ colorscheme solarized
 set hlsearch                      " Highlight search results
 set laststatus=2                  " Show status line
 set number                        " Show line numbers
-set numberwidth=5                 " Defines width of line number column
 set colorcolumn=80                " Highlight column 80
 set list listchars=tab:»·,trail:· " Display trailing whitespace
-set gcr=a:blinkon0                " Disable cursor blink
 
-" Change cursor to bar in insert mode else box
-"
-" Cursor types:
-"  0 = block
-"  1 = vertical bar
-"  2 = underscore
-" &t_SI is for insert mode
-" &t_EI is for normal mode
+" Use bar cursor in insert mode and box in normal mode.
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
