@@ -7,7 +7,6 @@ if exists(':Tabularize')
   nmap <leader>a: :Tabularize /:\zs<cr>
   vmap <leader>a: :Tabularize /:\zs<cr>
 
-
   " Align after ','
   nmap <leader>a, :Tabularize /,\zs<cr>
   vmap <leader>a, :Tabularize /,\zs<cr>
