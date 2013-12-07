@@ -43,6 +43,7 @@ Bundle 'tpope/vim-fugitive'
 " ====== Cosmetics, color schemes, powerline... ====== "
 Bundle "chrisbra/color_highlight.git"
 Bundle "bling/vim-airline.git"
+Bundle "edkolev/tmuxline.vim"
 Bundle "bogado/file-line.git"
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
