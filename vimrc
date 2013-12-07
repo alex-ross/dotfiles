@@ -46,18 +46,17 @@ endif
 " ------------------------------------------------------------------
 " General Settings
 " ------------------------------------------------------------------
-set encoding=utf-8              " Default encoding
-set history=500                 " Store lots of :cmdline history
-set viminfo='20,\"90,h,%        " Don't make .viminfo to large
-set showcmd                     " Show incomplete cmds down the bottom
-set visualbell                  " No sounds
-set autoread                    " Reload files changed outside vim
-set mouse=a                     " Lets you set marker and select text using mouse
-set bs=2                        " Makes backspace behave normal again
-set hidden                      " Allows buffers to exists in background as hidden
-
-" Removes delay when hitting <esc>
-set ttimeout ttimeoutlen=1
+set encoding=utf-8         " Default encoding
+set history=500            " Store lots of :cmdline history
+set viminfo='20,\"90,h,%   " Don't make .viminfo to large
+set showcmd                " Show incomplete cmds down the bottom
+set visualbell             " No sounds
+set autoread               " Reload files changed outside vim
+set mouse=a                " Lets you set marker and select text using mouse
+set bs=2                   " Makes backspace behave normal again
+set hidden                 " Allows buffers to exists in background as hidden
+set ttimeout ttimeoutlen=1 " Removes delay when hitting <esc>"
+set incsearch              " Search while typing
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -67,8 +66,8 @@ endif
 " ------------------------------------------------------------------
 " Text editing improvements
 " ------------------------------------------------------------------
-set spell spelllang=en_us " Turns on spell checking
-set backspace=indent,eol,start  " Allow backspace in insert mode
+set spell spelllang=en_us      " Turns on spell checking
+set backspace=indent,eol,start " Allow backspace in insert mode
 
 " Makes copy and paste behave normal
 set pastetoggle=<F2>
