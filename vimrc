@@ -1,5 +1,5 @@
 " ------------------------------------------------------------------
-" Stuff which needs to be first
+" Stuff which needs to be first                                 {{{1
 " ------------------------------------------------------------------
 set nocompatible           " Use Vim settings, rather than Vi settings
 let mapleader=","          " Set leaderkey
@@ -12,13 +12,13 @@ if filereadable(expand("~/.vim/vundles.vim"))
   source ~/.vim/vundles.vim
 endif
 " ------------------------------------------------------------------
-" Solarized colorscheme config
+" Solarized colorscheme config                                  {{{1
 " ------------------------------------------------------------------
 set background=dark
 syntax enable
 colorscheme solarized
 " ------------------------------------------------------------------
-" Visual Settings
+" Visual Settings                                               {{{1
 " ------------------------------------------------------------------
 set hlsearch                      " Highlight search results
 set laststatus=2                  " Show status line
@@ -35,7 +35,7 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 " ------------------------------------------------------------------
-" General Settings
+" General Settings                                              {{{1
 " ------------------------------------------------------------------
 set encoding=utf-8         " Default encoding
 set history=500            " Store lots of :cmdline history
@@ -55,7 +55,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 " ------------------------------------------------------------------
-" Text editing improvements
+" Text editing improvements                                     {{{1
 " ------------------------------------------------------------------
 set spell spelllang=en_us      " Turns on spell checking
 set backspace=indent,eol,start " Allow backspace in insert mode
@@ -67,7 +67,7 @@ set clipboard+=unnamed
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 " ------------------------------------------------------------------
-" General keymaps
+" General keymaps                                               {{{1
 " ------------------------------------------------------------------
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
@@ -90,13 +90,13 @@ command! W w " Binds `:W` to `:w`
 
 command! -nargs=* Wrap set wrap linebreak nolist
 " ------------------------------------------------------------------
-" Turn Off Swap Files
+" Turn Off Swap Files                                           {{{1
 " ------------------------------------------------------------------
 set noswapfile
 set nobackup
 set nowb
 " ------------------------------------------------------------------
-" Persistent Undo
+" Persistent Undo                                               {{{1
 " ------------------------------------------------------------------
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
@@ -104,7 +104,7 @@ silent !mkdir ~/.vim/backups > /dev/null 2>&1
 set undodir=~/.vim/backups
 set undofile
 " ------------------------------------------------------------------
-" Indentation
+" Indentation                                                   {{{1
 " ------------------------------------------------------------------
 set autoindent
 set smartindent
@@ -120,13 +120,13 @@ filetype indent on
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 " ------------------------------------------------------------------
-" Folds
+" Folds                                                         {{{1
 " ------------------------------------------------------------------
-set foldmethod=indent   "fold based on indent
+set foldmethod=manual   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 " ------------------------------------------------------------------
-" Completion
+" Completion                                                    {{{1
 " ------------------------------------------------------------------
 set wildmode=list:longest,list:full
 set wildmenu                "enable ctrl-n and ctrl-p to scroll through matches
@@ -154,7 +154,7 @@ function! InsertTabWrapper()
 endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 " ------------------------------------------------------------------
-" Scrolling
+" Scrolling                                                     {{{1
 " ------------------------------------------------------------------
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
@@ -165,7 +165,7 @@ set ttyfast       " You got a fast terminal
 set ttyscroll=3
 set lazyredraw    " to avoid scrolling problems
 " ------------------------------------------------------------------
-" Augroup
+" Augroup                                                       {{{1
 " ------------------------------------------------------------------
 augroup vimrcEx
   autocmd!
@@ -180,7 +180,7 @@ augroup vimrcEx
   " autocmd BufWritePre *.js,*.rb,*.coffee :call <SID>StripTrailingWhitespaces()
 augroup END
 " ------------------------------------------------------------------
-" Other Functions
+" Other Functions                                               {{{1
 " ------------------------------------------------------------------
 " Extract to variable
 " original source: https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
@@ -225,3 +225,6 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunction
+
+
+" vim: foldmethod=marker
