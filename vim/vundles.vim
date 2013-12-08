@@ -24,6 +24,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle "jistr/vim-nerdtree-tabs.git"
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'sjl/gundo.vim'
+Bundle 'scrooloose/syntastic'
 
 " For ag you need to install 'the_silver_searcher'
 " Read more here: https://github.com/rking/ag.vim
@@ -58,7 +59,6 @@ Bundle 'alex-ross/vim-rabl'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'jtratner/vim-flavored-markdown'
 Bundle 'freitass/todo.txt-vim'
-Bundle 'scrooloose/syntastic'
 
 " Plugins for ruby and ruby on rails
 Bundle 'tpope/vim-rails'
