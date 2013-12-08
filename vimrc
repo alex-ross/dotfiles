@@ -73,6 +73,9 @@ map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
 
+" Bind space to toggle foldings
+nnoremap <space> za
+
 " Global replace and ask for confirmation.
 " Cursor should be positioned so you only need to write something like
 " search/replace and then hit enter.
@@ -174,7 +177,7 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
   " Remove trailing whitespaces on save for certain files
-  autocmd BufWritePre *.js,*.rb,*.coffee :call <SID>StripTrailingWhitespaces()
+  " autocmd BufWritePre *.js,*.rb,*.coffee :call <SID>StripTrailingWhitespaces()
 augroup END
 " ------------------------------------------------------------------
 " Other Functions
@@ -215,7 +218,7 @@ endfunction
 command! StripWhitespace call <SID>StripTrailingWhitespaces()
 
 " Show syntax highlighting groups for word under cursor
-nmap <C-S-P> :call <SID>SynStack()<CR>
+nmap <leader>ss :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
