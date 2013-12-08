@@ -1,35 +1,31 @@
-let s:next_fold_closing = '='
+if !exists('*RubyMethodFold')
+  function! RubyMethodFold(line)
+    " First column which aren't an whitespace.
+    let column = match(getline(a:line), '\S')+1
+    " Get array if syntax name used for first word or character.
+    let stack = map(synstack(a:line, column), 'synIDattr(v:val, "name")')
 
-function! RubyFolds(line)
-  let this_line = getline(a:line)
-  " Get column number of firs character
-  let column = match(this_line, '\S')+1
-  let is_ruby_define = synIDattr(synID(a:line,column,0), 'name') == 'rubyDefine'
+    for syn_name in stack
+      if syn_name == "rubyMethodBlock" || syn_name == "rubyDefine" || syn_name == "rubyDocumentation"
+        return "1"
+      endif
+    endfor
 
-  if is_ruby_define && this_line =~ '\s*def '
-    " Start folding if its an "rubyDefine" according to syntax highlight and if
-    " it starts with "def".
-    return ">1"
-  elseif is_ruby_define && this_line =~ '\s*end'
-    " Continue the same fold level if it's an "rubyDefine" according to syntax
-    " highlight. Also set "next_fold_closing" to "0" which will close the fold
-    " on next line if we reach the "else" block.
-    let s:next_fold_closing = "0"
-    return "="
-  else
-    " Return "next_fold_closing" but also resets it to "="
-    let close_val = s:next_fold_closing
-    let s:next_fold_closing = "="
-    return close_val
-  end
-endfunction
+    return "0"
+  endfunction
+endif
+
+setlocal foldexpr=RubyMethodFold(v:lnum)
 setlocal foldmethod=expr
-setlocal foldexpr=RubyFolds(v:lnum)
 
-" Change fold text.
-" ex: def my_method [10 lines]
-function! RubeFoldText()
-  let fold_size = (v:foldend - v:foldstart)
-  return getline(v:foldstart) . ' [' . fold_size . ' lines]'
-endfunction
+if !exists("*RubyFoldText")
+  function! RubeFoldText()
+    let fold_size = (v:foldend - v:foldstart)
+    return getline(v:foldstart) . ' [' . fold_size . ' lines]'
+  endfunction
+endif
+
 setlocal foldtext=RubeFoldText()
+
+" Resets folding when syntax of file changes
+let b:undo_ftplugin = "setlocal foldtext< foldmethod< foldexpr<"
