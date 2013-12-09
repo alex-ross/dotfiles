@@ -2,11 +2,15 @@ if !exists('*RubyMethodFold')
   function! RubyMethodFold(line)
     " First column which aren't an whitespace.
     let column = match(getline(a:line), '\S')+1
+    if column == 0
+      let column = 1
+    endif
+
     " Get array if syntax name used for first word or character.
     let stack = map(synstack(a:line, column), 'synIDattr(v:val, "name")')
 
     for syn_name in stack
-      if syn_name == "rubyMethodBlock" || syn_name == "rubyDefine" || syn_name == "rubyDocumentation"
+      if syn_name == "rubyMethodBlock" || syn_name == "rubyDefine"
         return "1"
       endif
     endfor
