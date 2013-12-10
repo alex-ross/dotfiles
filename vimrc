@@ -9,7 +9,7 @@ execute pathogen#infect()
 
 " Load vundle plugins
 if filereadable(expand("~/.vim/vundles.vim"))
-  source ~/.vim/vundles.vim
+source ~/.vim/vundles.vim
 endif
 " ------------------------------------------------------------------
 " Solarized colorscheme config                                  {{{1
@@ -23,7 +23,7 @@ colorscheme solarized
 set hlsearch                      " Highlight search results
 set laststatus=2                  " Show status line
 set number                        " Show line numbers
-set colorcolumn=80                " Highlight column 80
+set colorcolumn=81                " Highlight column 81
 set list listchars=tab:»·,trail:· " Display trailing whitespace
 
 " Use bar cursor in insert mode and box in normal mode.
@@ -125,6 +125,20 @@ set linebreak    "Wrap lines at convenient points
 set foldmethod=manual   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
+
+" Default foldtext
+function! DefaultFoldText() "{{{2
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+" }}}2
+set foldtext=DefaultFoldText()
 " ------------------------------------------------------------------
 " Completion                                                    {{{1
 " ------------------------------------------------------------------
@@ -144,14 +158,14 @@ set complete=.,w,t
 
 " will insert tab at beginning of line,
 " will use competition if not at beginning
-function! InsertTabWrapper()
+function! InsertTabWrapper() " {{{2
   let col = col('.') - 1
   if !col || getline('.')[col -1] !~ '\k'
     return "\<tab>"
   else
     return "\<c-p>"
   endif
-endfunction
+endfunction " }}}2
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 " ------------------------------------------------------------------
 " Scrolling                                                     {{{1
@@ -184,7 +198,7 @@ augroup END
 " ------------------------------------------------------------------
 " Extract to variable
 " original source: https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
-function! ExtractVariable()
+function! ExtractVariable() " {{{2
   let name = input("Variable name: ")
   if name == ''
     return
@@ -198,11 +212,11 @@ function! ExtractVariable()
   exec "normal! O" . name . " = "
   " Paste the original selected text to be the variable value
   normal! $p
-endfunction
+endfunction " }}}
 vnoremap <leader>rv :call ExtractVariable()<cr>
 
 " Removes trailing whitespace
-function! s:StripTrailingWhitespaces()
+function! s:StripTrailingWhitespaces() " {{{2
   " Prepare, save last search and cursor position
   let _s=@/ " Last search
   let l=line('.')
@@ -214,17 +228,16 @@ function! s:StripTrailingWhitespaces()
   " Restore cursor position and search result
   let @/=_s
   call cursor(l, c)
-endfunction
+endfunction " }}}
 command! StripWhitespace call <SID>StripTrailingWhitespaces()
 
 " Show syntax highlighting groups for word under cursor
-nmap <leader>ss :call <SID>SynStack()<CR>
-function! <SID>SynStack()
+function! <SID>SynStack() " {{{2
   if !exists("*synstack")
     return
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunction
-
+endfunction " }}}
+nmap <leader>ss :call <SID>SynStack()<CR>
 
 " vim: foldmethod=marker
