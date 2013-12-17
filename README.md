@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-git clone git://github.com/alex-ross/dotfiles ~/.dotfiles
+git clone git@github.com:alex-ross/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 rake install
 ```
