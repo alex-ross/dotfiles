@@ -9,10 +9,10 @@ let g:tmuxline_preset = {
       \ 'z': '#(whoami)@#H'}
 
 let g:tmuxline_separators = {
-      \ 'left' : '⮀',
-      \ 'left_alt': '⮁',
-      \ 'right' : '⮂',
-      \ 'right_alt' : '⮃',
+      \ 'left' : '',
+      \ 'left_alt': '',
+      \ 'right' : '',
+      \ 'right_alt' : '',
       \ 'space' : ' '}
 
 
