@@ -4,12 +4,9 @@
 set nocompatible           " Use Vim settings, rather than Vi settings
 let mapleader=","          " Set leaderkey
 
-" Load pathogen plugins
-execute pathogen#infect()
-
 " Load vundle plugins
 if filereadable(expand("~/.vim/vundles.vim"))
-source ~/.vim/vundles.vim
+  source ~/.vim/vundles.vim
 endif
 " ------------------------------------------------------------------
 " Solarized colorscheme config                                  {{{1
@@ -189,6 +186,8 @@ augroup vimrcEx
 
   " Automatically wrap at 80 characters for Markdown
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+
+  autocmd BufRead,BufNewFile *.slim setlocal filetype=slim
 
   " Remove trailing whitespaces on save for certain files
   " autocmd BufWritePre *.js,*.rb,*.coffee :call <SID>StripTrailingWhitespaces()
