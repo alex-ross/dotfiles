@@ -4,7 +4,7 @@ desc "install the dot files into user's home directory"
 task :install do
   replace_all = false
   Dir['*'].each do |file|
-    next if %w[Rakefile README LICENSE id_dsa.pub].include? file
+    next if %w[Rakefile README LICENSE id_dsa.pub id_rsa.pub].include? file
 
     if File.exist?(File.join(ENV['HOME'], ".#{file}"))
       if replace_all
@@ -30,8 +30,11 @@ task :install do
 
   # Handle ssh pubkey on its own
   puts "Linking public ssh key"
-  system %Q{rm "$HOME/.ssh/id_dsa.pub"}
-  system %Q{ln -s "$PWD/id_dsa.pub" "$HOME/.ssh/id_dsa.pub"}
+  %w(id_dsa.pub id_rsa.pub).each do |file|
+    File.exist?(file) or next
+    print "Link ssh key #{file}? [yn] "
+    $stdin.gets.chomp == 'y' and link_public_ssh_key(file)
+  end
 
   # Need to do this to make vim use RVM's ruby version
   if File.exist?('/etc/zshenv')
@@ -50,4 +53,10 @@ end
 def link_file(file)
   puts "linking ~/.#{file}"
   system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
+end
+
+def link_public_ssh_key(file)
+  puts "linking ~/.ssh/#{file}"
+  system %Q{rm "$HOME/.ssh/#{file}"}
+  system %Q{ln -s "$PWD/#{file}" "$HOME/.ssh/#{file}"}
 end
