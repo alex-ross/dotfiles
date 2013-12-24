@@ -20,6 +20,7 @@ colorscheme solarized
 set hlsearch                      " Highlight search results
 set laststatus=2                  " Show status line
 set number                        " Show line numbers
+set relativenumber                " Use relative numbers
 set colorcolumn=81                " Highlight column 81
 set list listchars=tab:»·,trail:· " Display trailing whitespace
 
@@ -77,6 +78,9 @@ nnoremap <space> za
 " Cursor should be positioned so you only need to write something like
 " search/replace and then hit enter.
 nnoremap <leader>/ :%s/\v/gc<Left><Left><Left>
+
+" Toggle relative line numbers
+nnoremap <leader>l :set relativenumber!<CR>
 
 " Switch between last two files
 nnoremap <leader><leader> <c-^>
