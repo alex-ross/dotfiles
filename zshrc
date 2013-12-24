@@ -46,3 +46,8 @@ ls -f  $HOME/.tmux_session_scripts/tm*.zsh | while read -r file; do source $file
 # Aliases                                                                   {{{1
 # ------------------------------------------------------------------------------
 alias be="noglob bundle exec"
+alias editor="vim"
+alias v="vim"
+
+# Fat finger aliases
+alias cd..="cd .."
