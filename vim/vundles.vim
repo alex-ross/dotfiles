@@ -64,11 +64,8 @@ Bundle 'altercation/vim-colors-solarized'
 " ------------------------------------------------------------------------------
 " Lots of language support
 Bundle 'sheerun/vim-polyglot'
-" Bundle 'slim-template/vim-slim'
-" Bundle 'kchmck/vim-coffee-script'
 Bundle 'alex-ross/vim-rabl'
 Bundle 'othree/javascript-libraries-syntax.vim'
-" Bundle 'jtratner/vim-flavored-markdown'
 Bundle 'freitass/todo.txt-vim'
 
 " Plugins for ruby and ruby on rails                                        {{{1
