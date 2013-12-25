@@ -166,17 +166,6 @@ set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 set complete=.,w,t
 
-" will insert tab at beginning of line,
-" will use competition if not at beginning
-function! InsertTabWrapper() " {{{2
-  let col = col('.') - 1
-  if !col || getline('.')[col -1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction " }}}2
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 " ------------------------------------------------------------------
 " Scrolling                                                     {{{1
 " ------------------------------------------------------------------
