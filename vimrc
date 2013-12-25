@@ -69,7 +69,16 @@ let g:html_indent_tags = 'li\|p'
 " ------------------------------------------------------------------
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
-map <C-t> <esc>:tabnew<CR>
+
+" Tabs
+" ====
+nnoremap tn :tabnew<CR>
+nnoremap te :tabedit<Space>
+nnoremap td :tabclose<CR>
+nnoremap tk :tabnext<CR>
+nnoremap tj :tabprev<CR>
+nnoremap th :tabmove -1<CR>
+nnoremap tl :tabmove +1<CR>
 
 " Bind space to toggle foldings
 nnoremap <space> za
