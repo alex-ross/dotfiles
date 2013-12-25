@@ -42,7 +42,6 @@ set showcmd                " Show incomplete cmds down the bottom
 set visualbell             " No sounds
 set autoread               " Reload files changed outside vim
 set mouse=a                " Lets you set marker and select text using mouse
-set bs=2                   " Makes backspace behave normal again
 set hidden                 " Allows buffers to exists in background as hidden
 set ttimeout ttimeoutlen=1 " Removes delay when hitting <esc>"
 set incsearch              " Search while typing
