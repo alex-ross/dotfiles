@@ -1,8 +1,3 @@
-snippet fieldset "Fieldset with legend" !b
-fieldset
-	legend ${1}
-endsnippet
-
 snippet if "If statement" !b
 - if ${1}
 	${2}
@@ -13,4 +8,93 @@ snippet ife "If else statement" !b
 	${2}
 - else
 	${3}
+endsnippet
+
+#######################################################################
+#                    Some useful Unicode entities                     #
+#######################################################################
+
+snippet nbs "Non-Breaking Space" !b
+&nbsp;
+endsnippet
+
+snippet left "Html char code for '←'" !b
+&#x2190;
+endsnippet
+
+snippet right "Html char code for '→'" !b
+&#x2192;
+endsnippet
+
+snippet up "Html char code for '↑'" !b
+&#x2191;
+endsnippet
+
+snippet down "Html char code for '↓'" !b
+&#x2193;
+endsnippet
+
+snippet return "Html char code for '↩'" !b
+&#x21A9;
+endsnippet
+
+snippet backtab "Html char code for '⇤'" !b
+&#x21E4;
+endsnippet
+
+snippet tab "Html char code for '⇥'" !b
+&#x21E5;
+endsnippet
+
+snippet shift "Html char code for '⇧'" !b
+&#x21E7;
+endsnippet
+
+snippet ctrl "Html char code for '⌃'" !b
+&#x2303;
+endsnippet
+
+snippet enter "Html char code for '⌅'" !b
+&#x2305;
+endsnippet
+
+snippet cmd "Html char code for '⌘'" !b
+&#x2318;
+endsnippet
+
+snippet option "Html char code for '⌥'" !b
+&#x2325;
+endsnippet
+
+snippet delete "Html char code for '⌦'" !b
+&#x2326;
+endsnippet
+
+snippet backspace "Html char code for '⌫'" !b
+&#x232B;
+endsnippet
+
+snippet esc "Html char code for '⎋'" !b
+&#x238B;
+endsnippet
+
+#######################################################################
+#                               Assets                                #
+#######################################################################
+
+snippet css "Link tag" !b
+link rel="stylesheet" href="${1:style.css}" type="text/css" media="${2:all}"
+endsnippet
+
+snippet script "Script tag" !b
+script src="${1:script.js}" type="text/javascript"
+endsnippet
+
+#######################################################################
+#                                Forms                                #
+#######################################################################
+
+snippet fieldset "Fieldset with legend" !b
+fieldset
+	legend ${1}
 endsnippet
