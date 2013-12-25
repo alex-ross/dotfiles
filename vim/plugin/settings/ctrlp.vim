@@ -1,6 +1,6 @@
 " set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\node_modules$'
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
