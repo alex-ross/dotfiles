@@ -13,7 +13,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle (required)
-Bundle "gmarik/vundle"
+Bundle 'gmarik/vundle'
 
 " Dependencies                                                              {{{1
 " ------------------------------------------------------------------------------
@@ -23,9 +23,9 @@ Bundle 'rizzatti/funcoo.vim'
 
 " General Vim improvements                                                  {{{1
 " ------------------------------------------------------------------------------
-Bundle "kien/ctrlp.vim"
+Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle "jistr/vim-nerdtree-tabs.git"
+Bundle 'jistr/vim-nerdtree-tabs.git'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/syntastic'
@@ -36,9 +36,9 @@ Bundle 'rking/ag.vim'
 
 " General text editing improvements                                         {{{1
 " ------------------------------------------------------------------------------
-Bundle "Raimondi/delimitMate"
-Bundle "tomtom/tcomment_vim.git"
-Bundle "terryma/vim-multiple-cursors"
+Bundle 'Raimondi/delimitMate'
+Bundle 'tomtom/tcomment_vim.git'
+Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'godlygeek/tabular'
@@ -53,11 +53,11 @@ Bundle 'tpope/vim-fugitive'
 
 " Cosmetics, color schemes, powerline...                                    {{{1
 " ------------------------------------------------------------------------------
-Bundle "bling/vim-airline"
+Bundle 'bling/vim-airline'
 " Generates tmux colorschemes based on airlines colorscheme.
-Bundle "edkolev/tmuxline.vim"
+Bundle 'edkolev/tmuxline.vim'
 " Enables files to be open with line like this `vim index.html:20`
-Bundle "bogado/file-line"
+Bundle 'bogado/file-line'
 Bundle 'altercation/vim-colors-solarized'
 
 " Additional syntaxes                                                       {{{1
@@ -77,4 +77,3 @@ Bundle 'tpope/vim-rbenv'
 " }}}1
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on
-" vim: foldmethod=marker
