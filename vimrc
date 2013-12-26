@@ -1,6 +1,10 @@
-" ------------------------------------------------------------------
-" Stuff which needs to be first                                 {{{1
-" ------------------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   .vimrc                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                       Stuff which needs to be first                     {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible           " Use Vim settings, rather than Vi settings
 let mapleader=","          " Set leaderkey
 
@@ -8,15 +12,15 @@ let mapleader=","          " Set leaderkey
 if filereadable(expand("~/.vim/vundles.vim"))
   source ~/.vim/vundles.vim
 endif
-" ------------------------------------------------------------------
-" Solarized colorscheme config                                  {{{1
-" ------------------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                        Solarized colorscheme config                     {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 syntax enable
 colorscheme solarized
-" ------------------------------------------------------------------
-" Visual Settings                                               {{{1
-" ------------------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              Visual settings                            {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set hlsearch                      " Highlight search results
 set laststatus=2                  " Show status line
 set number                        " Show line numbers
@@ -32,9 +36,9 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
-" ------------------------------------------------------------------
-" General Settings                                              {{{1
-" ------------------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              General settings                           {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf-8         " Default encoding
 set history=500            " Store lots of :cmdline history
 set viminfo='20,\"90,h,%   " Don't make .viminfo to large
@@ -51,9 +55,9 @@ if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
 endif
-" ------------------------------------------------------------------
-" Text editing improvements                                     {{{1
-" ------------------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                          Text editing improvements                      {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set spell spelllang=en_us      " Turns on spell checking
 set backspace=indent,eol,start " Allow backspace in insert mode
 
@@ -63,9 +67,9 @@ set clipboard+=unnamed
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
-" ------------------------------------------------------------------
-" General keymaps                                               {{{1
-" ------------------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                            General key mapping                          {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 
@@ -81,6 +85,9 @@ nnoremap tl :tabmove +1<CR>
 
 " Bind space to toggle foldings
 nnoremap <space> za
+
+" Enter special chars with <C-d>. <C-k> is taken to swap panes.
+inoremap <C-d> <C-k>
 
 " Global replace and ask for confirmation.
 " Cursor should be positioned so you only need to write something like
@@ -98,23 +105,23 @@ command! Q q " Binds `:Q` to `:q`
 command! W w " Binds `:W` to `:w`
 
 command! -nargs=* Wrap set wrap linebreak nolist
-" ------------------------------------------------------------------
-" Turn Off Swap Files                                           {{{1
-" ------------------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                            Turn off swap files                          {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set noswapfile
 set nobackup
 set nowb
-" ------------------------------------------------------------------
-" Persistent Undo                                               {{{1
-" ------------------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              Persistent undo                            {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
 silent !mkdir ~/.vim/backups > /dev/null 2>&1
 set undodir=~/.vim/backups
 set undofile
-" ------------------------------------------------------------------
-" Indentation                                                   {{{1
-" ------------------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                Indentation                              {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent
 set smartindent
 set smarttab
@@ -123,17 +130,16 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
-" ------------------------------------------------------------------
-" Folds                                                         {{{1
-" ------------------------------------------------------------------
-set foldmethod=manual   "fold based on indent
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   Folds                                 {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set foldmethod=manual
 set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
+" set nofoldenable        "dont fold by default
 
 " Default foldtext
 function! DefaultFoldText() "{{{2
@@ -148,9 +154,9 @@ function! DefaultFoldText() "{{{2
 endfunction
 " }}}2
 set foldtext=DefaultFoldText()
-" ------------------------------------------------------------------
-" Completion                                                    {{{1
-" ------------------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Completion                              {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set wildmode=list:longest,list:full
 set wildmenu                "enable ctrl-n and ctrl-p to scroll through matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
@@ -164,10 +170,9 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 set complete=.,w,t
-
-" ------------------------------------------------------------------
-" Scrolling                                                     {{{1
-" ------------------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Scrolling                               {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
@@ -176,21 +181,9 @@ set sidescroll=1
 set ttyfast       " You got a fast terminal
 set ttyscroll=3
 set lazyredraw    " to avoid scrolling problems
-" ------------------------------------------------------------------
-" Augroup                                                       {{{1
-" ------------------------------------------------------------------
-augroup vimrcEx
-  autocmd!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " Automatically wrap at 80 characters for Markdown
-  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-augroup END
-" ------------------------------------------------------------------
-" Other Functions                                               {{{1
-" ------------------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              Other functions                            {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Extract to variable
 " original source: https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 function! ExtractVariable() " {{{2
@@ -234,5 +227,3 @@ function! <SID>SynStack() " {{{2
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunction " }}}
 nmap <leader>ss :call <SID>SynStack()<CR>
-
-" vim: foldmethod=marker
