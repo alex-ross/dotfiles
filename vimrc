@@ -187,11 +187,6 @@ augroup vimrcEx
 
   " Automatically wrap at 80 characters for Markdown
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-
-  autocmd BufRead,BufNewFile *.slim setlocal filetype=slim
-
-  " Remove trailing whitespaces on save for certain files
-  " autocmd BufWritePre *.js,*.rb,*.coffee :call <SID>StripTrailingWhitespaces()
 augroup END
 " ------------------------------------------------------------------
 " Other Functions                                               {{{1
