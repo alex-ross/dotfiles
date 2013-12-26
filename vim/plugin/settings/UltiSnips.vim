@@ -5,3 +5,6 @@ let g:UltiSnipsJumpForwardTrigger  = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 let g:UltiSnipsEditSplit = 'vertical'
+
+" Define g:snips_author; some snipmate snippets use this
+let g:snips_author = "Alexander Ross"
