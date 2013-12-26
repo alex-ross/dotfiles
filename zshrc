@@ -51,7 +51,10 @@ alias edit='vim'
 alias v='vim'
 alias vi='vim'
 alias vinstall='vim --noplugin -u ~/.dotfiles/vim/vundles.vim -N "+set hidden" "+syntax on" +BundleClean! +BundleInstall +qall'
+
+# Directories
 alias code='cd ~/code'
+alias dotfiles='cd ~/.dotfiles'
 
 # Git
 alias g='git'
