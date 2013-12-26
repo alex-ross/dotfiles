@@ -16,6 +16,3 @@ let g:tmuxline_separators = {
       \ 'right' : '',
       \ 'right_alt' : '',
       \ 'space' : ' '}
-
-
-
