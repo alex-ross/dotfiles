@@ -20,4 +20,7 @@ endif
 " it interferes with YankRing (paste, then hit ctrl-p)
 let g:ctrlp_map = ',t'
 nnoremap <silent> <leader>t :CtrlP<CR>
+nnoremap <silent> <leader>gf :CtrlP<CR>
+nnoremap <silent> <leader>gt :CtrlPTag<CR>
+
 
