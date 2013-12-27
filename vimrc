@@ -105,8 +105,9 @@ nnoremap <leader>l :set relativenumber!<CR>
 nnoremap <leader><leader> <c-^>
 
 " When 'q' is faster than 'shift'...
-command! Q q " Binds `:Q` to `:q`
-command! W w " Binds `:W` to `:w`
+command! Q q
+command! W w
+command! Wq wq
 
 command! -nargs=* Wrap set wrap linebreak nolist
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
