@@ -42,7 +42,7 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'godlygeek/tabular'
-Bundle 'git@github.com:SirVer/ultisnips.git'
+Bundle 'SirVer/ultisnips'
 
 " Third part applications                                                   {{{1
 " ------------------------------------------------------------------------------
