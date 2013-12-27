@@ -21,7 +21,6 @@ colorscheme solarized
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              Visual settings                            {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set hlsearch                      " Highlight search results
 set laststatus=2                  " Show status line
 set number                        " Show line numbers
 set relativenumber                " Use relative numbers
@@ -48,13 +47,18 @@ set autoread               " Reload files changed outside vim
 set mouse=a                " Lets you set marker and select text using mouse
 set hidden                 " Allows buffers to exists in background as hidden
 set ttimeout ttimeoutlen=1 " Removes delay when hitting <esc>"
-set incsearch              " Search while typing
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
 endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              Search settings                            {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set incsearch            " Search while typing
+set hlsearch             " Highlight search results
+set ignorecase smartcase
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          Text editing improvements                      {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
