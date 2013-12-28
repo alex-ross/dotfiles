@@ -24,8 +24,9 @@ colorscheme solarized
 set laststatus=2                  " Show status line
 set number                        " Show line numbers
 set relativenumber                " Use relative numbers
-set colorcolumn=81                " Highlight column 81
-set list listchars=tab:»·,trail:· " Display trailing whitespace
+set colorcolumn=+1
+set list listchars=tab:»·,trail:·,extends:❯,precedes:❮ " Display trailing whitespace
+set showbreak=\ ↪\ 
 
 " Use bar cursor in insert mode and box in normal mode.
 if exists('$TMUX')
@@ -35,6 +36,9 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
+" Resize splits when window resizes
+au VimResized * :wincmd =
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              General settings                           {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -98,13 +102,24 @@ nnoremap <leader>/ :%s/\v/gc<Left><Left><Left>
 " Toggle relative line numbers
 nnoremap <leader>l :set relativenumber!<CR>
 
+" Easier navigation
+noremap H ^
+noremap L $
+vnoremap L g_
+
 " Switch between last two files
 nnoremap <leader><leader> <c-^>
 
 " When 'q' is faster than 'shift'...
-command! Q q
-command! W w
-command! Wq wq
+command! -bang E e<bang>
+command! -bang Q q<bang>
+command! -bang W w<bang>
+command! -bang QA qa<bang>
+command! -bang Qa qa<bang>
+command! -bang Wa wa<bang>
+command! -bang WA wa<bang>
+command! -bang Wq wq<bang>
+command! -bang WQ wq<bang>
 
 command! -nargs=* Wrap set wrap linebreak nolist
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -159,6 +174,9 @@ set foldtext=DefaultFoldText()
 " Bind space to toggle foldings
 nnoremap <space> za
 vnoremap <space> za
+" Focus on this fold
+nnoremap <leader><space> zMzvzz
+vnoremap <leader><space> zMzvzz
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Completion                              {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -232,3 +250,14 @@ function! <SID>SynStack() " {{{2
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunction " }}}
 nmap <leader>ss :call <SID>SynStack()<CR>
+
+function! JumpToTag() "{{{2
+    execute "normal! \<c-]>mzzvzz15\<c-e>"
+    execute "keepjumps normal! `z"
+endfunction "}}}2
+function! JumpToTagInSplit() "{{{2
+    execute "normal! \<c-w>v\<c-]>mzzMzvzz15\<c-e>"
+    execute "keepjumps normal! `z"
+endfunction "}}}2
+nnoremap gt :silent! call JumpToTag()<cr>
+nnoremap gst :silent! call JumpToTagInSplit()<cr>
