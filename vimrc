@@ -174,9 +174,6 @@ set foldtext=DefaultFoldText()
 " Bind space to toggle foldings
 nnoremap <space> za
 vnoremap <space> za
-" Focus on this fold
-nnoremap <leader><space> zMzvzz
-vnoremap <leader><space> zMzvzz
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Completion                              {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
