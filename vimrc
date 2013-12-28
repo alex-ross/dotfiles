@@ -87,9 +87,6 @@ nnoremap tj :tabprev<CR>
 nnoremap th :tabmove -1<CR>
 nnoremap tl :tabmove +1<CR>
 
-" Bind space to toggle foldings
-nnoremap <space> za
-
 " Enter special chars with <C-d>. <C-k> is taken to swap panes.
 inoremap <C-d> <C-k>
 
@@ -144,7 +141,6 @@ set linebreak    "Wrap lines at convenient points
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set foldmethod=manual
 set foldnestmax=3       "deepest fold is 3 levels
-" set nofoldenable        "dont fold by default
 
 " Default foldtext
 function! DefaultFoldText() "{{{2
@@ -159,6 +155,10 @@ function! DefaultFoldText() "{{{2
 endfunction
 " }}}2
 set foldtext=DefaultFoldText()
+
+" Bind space to toggle foldings
+nnoremap <space> za
+vnoremap <space> za
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Completion                              {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
