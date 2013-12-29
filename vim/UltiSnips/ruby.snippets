@@ -1,3 +1,164 @@
 snippet bpry "Binding pry" !b
 binding.pry unless $prevent_pry
 endsnippet
+
+#######################################################################
+#                            Status codes                             #
+#######################################################################
+
+# 1xx Informational
+snippet :100 "Symbol for status Continue" !b
+:continue
+endsnippet
+snippet :101 "Sumbol for HTTP status Switching Protocols" !b
+:switching_protocols
+endsnippet
+snippet :102 "Sumbol for HTTP status Processing" !b
+:processing
+endsnippet
+
+# 2xx Success
+snippet :200 "Sumbol for HTTP status OK" !b
+:ok
+endsnippet
+snippet :201 "Sumbol for HTTP status Created" !b
+:created
+endsnippet
+snippet :202 "Sumbol for HTTP status Accepted" !b
+:accepted
+endsnippet
+snippet :203 "Sumbol for HTTP status Non-Authoritative Information" !b
+:non_authoritative_information
+endsnippet
+snippet :204 "Sumbol for HTTP status No Content" !b
+:no_content
+endsnippet
+snippet :205 "Sumbol for HTTP status Reset Content" !b
+:reset_content
+endsnippet
+snippet :206 "Sumbol for HTTP status Partial Content" !b
+:partial_content
+endsnippet
+snippet :207 "Sumbol for HTTP status Multi-Status" !b
+:multi_status
+endsnippet
+snippet :226 "Sumbol for HTTP status IM Used" !b
+:im_used
+endsnippet
+
+# 3xx Redirection
+snippet :300 "Sumbol for HTTP status Multiple Choices" !b
+:multiple_choices
+endsnippet
+snippet :301 "Sumbol for HTTP status Moved Permanently" !b
+:moved_permanently
+endsnippet
+snippet :302 "Sumbol for HTTP status Found" !b
+:found
+endsnippet
+snippet :303 "Sumbol for HTTP status See Other" !b
+:see_other
+endsnippet
+snippet :304 "Sumbol for HTTP status Not Modified" !b
+:not_modified
+endsnippet
+snippet :305 "Sumbol for HTTP status Use Proxy" !b
+:use_proxy
+endsnippet
+snippet :307 "Sumbol for HTTP status Temporary Redirect" !b
+:temporary_redirect
+endsnippet
+
+# 4xx Client Error
+snippet :400 "Sumbol for HTTP status Bad Request" !b
+:bad_request
+endsnippet
+snippet :401 "Sumbol for HTTP status Unauthorized" !b
+:unauthorized
+endsnippet
+snippet :402 "Sumbol for HTTP status Payment Required" !b
+:payment_required
+endsnippet
+snippet :403 "Sumbol for HTTP status Forbidden" !b
+:forbidden
+endsnippet
+snippet :404 "Sumbol for HTTP status Not Found" !b
+:not_found
+endsnippet
+snippet :405 "Sumbol for HTTP status Method Not Allowed" !b
+:method_not_allowed
+endsnippet
+snippet :406 "Sumbol for HTTP status Not Acceptable" !b
+:not_acceptable
+endsnippet
+snippet :407 "Sumbol for HTTP status Proxy Authentication Required" !b
+:proxy_authentication_required
+endsnippet
+snippet :408 "Sumbol for HTTP status Request Timeout" !b
+:request_timeout
+endsnippet
+snippet :409 "Sumbol for HTTP status Conflict" !b
+:conflict
+endsnippet
+snippet :410 "Sumbol for HTTP status Gone" !b
+:gone
+endsnippet
+snippet :411 "Sumbol for HTTP status Length Required" !b
+:length_required
+endsnippet
+snippet :412 "Sumbol for HTTP status Precondition Failed" !b
+:precondition_failed
+endsnippet
+snippet :413 "Sumbol for HTTP status Request Entity Too Large" !b
+:request_entity_too_large
+endsnippet
+snippet :414 "Sumbol for HTTP status Request-URI Too Long" !b
+:request_uri_too_long
+endsnippet
+snippet :415 "Sumbol for HTTP status Unsupported Media Type" !b
+:unsupported_media_type
+endsnippet
+snippet :416 "Sumbol for HTTP status Requested Range Not Satisfiable" !b
+:requested_range_not_satisfiable
+endsnippet
+snippet :417 "Sumbol for HTTP status Expectation Failed" !b
+:expectation_failed
+endsnippet
+snippet :422 "Sumbol for HTTP status Unprocessable Entity" !b
+:unprocessable_entity
+endsnippet
+snippet :423 "Sumbol for HTTP status Locked" !b
+:locked
+endsnippet
+snippet :424 "Sumbol for HTTP status Failed Dependency" !b
+:failed_dependency
+endsnippet
+snippet :426 "Sumbol for HTTP status Upgrade Required" !b
+:upgrade_required
+endsnippet
+
+# 5xx Server Error
+snippet :500 "Sumbol for HTTP status Internal Server Error" !b
+:internal_server_error
+endsnippet
+snippet :501 "Sumbol for HTTP status Not Implemented" !b
+:not_implemented
+endsnippet
+snippet :502 "Sumbol for HTTP status Bad Gateway" !b
+:bad_gateway
+endsnippet
+snippet :503 "Sumbol for HTTP status Service Unavailable" !b
+:service_unavailable
+endsnippet
+snippet :504 "Sumbol for HTTP status Gateway Timeout" !b
+:gateway_timeout
+endsnippet
+snippet :505 "Sumbol for HTTP status HTTP Version Not Supported" !b
+:http_version_not_supported
+endsnippet
+snippet :507 "Sumbol for HTTP status Insufficient Storage" !b
+:insufficient_storage
+endsnippet
+snippet :510 "Sumbol for HTTP status Not Extended" !b
+:not_extended
+endsnippet
