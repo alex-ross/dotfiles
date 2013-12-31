@@ -7,25 +7,19 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible           " Use Vim settings, rather than Vi settings
 let mapleader=","          " Set leaderkey
+let maplocalleader=";"
 
 " Load vundle plugins
 if filereadable(expand("~/.vim/vundles.vim"))
   source ~/.vim/vundles.vim
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                        Solarized colorscheme config                     {{{1
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set background=dark
-syntax enable
-colorscheme solarized
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              Visual settings                            {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set laststatus=2                  " Show status line
 set number                        " Show line numbers
 set relativenumber                " Use relative numbers
 set colorcolumn=+1
-set list listchars=tab:»·,trail:·,extends:❯,precedes:❮ " Display trailing whitespace
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set showbreak=\ ↪\ 
 
 " Use bar cursor in insert mode and box in normal mode.
@@ -42,15 +36,11 @@ au VimResized * :wincmd =
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              General settings                           {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set encoding=utf-8         " Default encoding
-set history=500            " Store lots of :cmdline history
-set viminfo='20,\"90,h,%   " Don't make .viminfo to large
-set showcmd                " Show incomplete cmds down the bottom
-set visualbell             " No sounds
-set autoread               " Reload files changed outside vim
-set mouse=a                " Lets you set marker and select text using mouse
-set hidden                 " Allows buffers to exists in background as hidden
-set ttimeout ttimeoutlen=1 " Removes delay when hitting <esc>"
+set encoding=utf-8 " Default encoding
+set visualbell     " No sounds
+set mouse=a        " Lets you set marker and select text using mouse
+set hidden         " Allows buffers to exists in background as hidden
+set lazyredraw     " Redraw after macros and not during
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -60,14 +50,12 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              Search settings                            {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set incsearch            " Search while typing
 set hlsearch             " Highlight search results
 set ignorecase smartcase
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          Text editing improvements                      {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set spell spelllang=en_us      " Turns on spell checking
-set backspace=indent,eol,start " Allow backspace in insert mode
 
 " Makes copy and paste behave normal
 set pastetoggle=<F2>
@@ -139,9 +127,7 @@ set undofile
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Indentation                              {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set autoindent
 set smartindent
-set smarttab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
@@ -178,7 +164,6 @@ vnoremap <space> za
 "                                 Completion                              {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set wildmode=list:longest,list:full
-set wildmenu                "enable ctrl-n and ctrl-p to scroll through matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 set wildignore+=*sass-cache*
@@ -189,18 +174,25 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
-set complete=.,w,t
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Scrolling                               {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff=15
 set sidescroll=1
 
-" Improve performance of Vim
-set ttyfast       " You got a fast terminal
-set ttyscroll=3
-set lazyredraw    " to avoid scrolling problems
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                    Tags                                 {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! JumpToTag()
+    execute "normal! \<c-]>mzzvzz15\<c-e>"
+    execute "keepjumps normal! `z"
+endfunction
+function! JumpToTagInSplit()
+    execute "normal! \<c-w>v\<c-]>mzzMzvzz15\<c-e>"
+    execute "keepjumps normal! `z"
+endfunction
+nnoremap <leader>gt :silent! call JumpToTag()<cr>
+nnoremap <leader>gst :silent! call JumpToTagInSplit()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              Other functions                            {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -247,14 +239,3 @@ function! <SID>SynStack() " {{{2
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunction " }}}
 nmap <leader>ss :call <SID>SynStack()<CR>
-
-function! JumpToTag() "{{{2
-    execute "normal! \<c-]>mzzvzz15\<c-e>"
-    execute "keepjumps normal! `z"
-endfunction "}}}2
-function! JumpToTagInSplit() "{{{2
-    execute "normal! \<c-w>v\<c-]>mzzMzvzz15\<c-e>"
-    execute "keepjumps normal! `z"
-endfunction "}}}2
-nnoremap gt :silent! call JumpToTag()<cr>
-nnoremap gst :silent! call JumpToTagInSplit()<cr>

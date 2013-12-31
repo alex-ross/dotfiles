@@ -1,5 +1,5 @@
 " let g:UltiSnipsExpandTrigger = "<tab>"
-" let g:UltiSnipsListSnippets  = "<C-u>"
+" let g:UltiSnipsListSnippets  = "<c-u>"
 "
 " let g:UltiSnipsJumpForwardTrigger  = "<tab>"
 " let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"

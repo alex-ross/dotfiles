@@ -15,14 +15,17 @@ call vundle#rc()
 " let Vundle manage Vundle (required)
 Bundle 'gmarik/vundle'
 
-" Dependencies                                                              {{{1
-" ------------------------------------------------------------------------------
+" Dependencies                                                            {{{1
+" ----------------------------------------------------------------------------
 " Funcoo
 "   - rizzatti/dash.vim
 Bundle 'rizzatti/funcoo.vim'
 
-" General Vim improvements                                                  {{{1
-" ------------------------------------------------------------------------------
+" General Vim improvements                                                {{{1
+" ----------------------------------------------------------------------------
+" Defaults everyone can agree on (according to tpope).
+Bundle 'tpope/vim-sensible'
+
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs.git'
@@ -34,8 +37,8 @@ Bundle 'scrooloose/syntastic'
 " Read more here: https://github.com/rking/ag.vim
 Bundle 'rking/ag.vim'
 
-" General text editing improvements                                         {{{1
-" ------------------------------------------------------------------------------
+" General text editing improvements                                       {{{1
+" ----------------------------------------------------------------------------
 Bundle 'Raimondi/delimitMate'
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'terryma/vim-multiple-cursors'
@@ -44,32 +47,30 @@ Bundle 'tpope/vim-endwise'
 Bundle 'godlygeek/tabular'
 Bundle 'SirVer/ultisnips'
 
-" Third part applications                                                   {{{1
-" ------------------------------------------------------------------------------
+" Third part applications                                                 {{{1
+" ----------------------------------------------------------------------------
 " Search Dash for documentation with `:Dash`
 Bundle 'rizzatti/dash.vim'
 " Lots of git commands like `:Gcommit` and of course `:Git`
 Bundle 'tpope/vim-fugitive'
 
-" Cosmetics, color schemes, powerline...                                    {{{1
-" ------------------------------------------------------------------------------
+" Cosmetics, color schemes, powerline...                                  {{{1
+" ----------------------------------------------------------------------------
 Bundle 'bling/vim-airline'
-" Generates tmux colorschemes based on airlines colorscheme.
-Bundle 'edkolev/tmuxline.vim'
 " Enables files to be open with line like this `vim index.html:20`
 Bundle 'bogado/file-line'
 Bundle 'altercation/vim-colors-solarized'
 
-" Additional syntaxes                                                       {{{1
-" ------------------------------------------------------------------------------
+" Additional syntaxes                                                     {{{1
+" ----------------------------------------------------------------------------
 " Lots of language support
 Bundle 'sheerun/vim-polyglot'
 Bundle 'alex-ross/vim-rabl'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'freitass/todo.txt-vim'
 
-" Plugins for ruby and ruby on rails                                        {{{1
-" ------------------------------------------------------------------------------
+" Plugins for ruby and ruby on rails                                      {{{1
+" ----------------------------------------------------------------------------
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rbenv'
