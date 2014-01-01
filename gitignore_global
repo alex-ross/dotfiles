@@ -30,7 +30,13 @@ Icon
 # Ignore Yard documentations
 .yardoc/
 
+# Ignore ctags
 tags
+ctags
+
+# Ignore common swap and backup files from other editors
+*~
+\#*\#
 
 # Project specifics that where i can't manage local gitignore
 #############################################################
