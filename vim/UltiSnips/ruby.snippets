@@ -2,6 +2,11 @@ snippet bpry "Binding pry" !b
 binding.pry unless $prevent_pry
 endsnippet
 
+snippet req "require '<some_file>'" !b
+require '${1}'
+${0}
+endsnippet
+
 #######################################################################
 #                            Status codes                             #
 #######################################################################
