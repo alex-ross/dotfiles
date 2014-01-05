@@ -6,6 +6,7 @@
 "                       Stuff which needs to be first                     {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible           " Use Vim settings, rather than Vi settings
+set encoding=utf-8
 let mapleader=","          " Set leaderkey
 let maplocalleader=";"
 
@@ -21,6 +22,10 @@ set relativenumber                " Use relative numbers
 set colorcolumn=+1
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set showbreak=\ ↪\ 
+set laststatus=2
+set ruler
+set showcmd
+set showmatch
 
 " Use bar cursor in insert mode and box in normal mode.
 if exists('$TMUX')
@@ -41,16 +46,37 @@ set visualbell     " No sounds
 set mouse=a        " Lets you set marker and select text using mouse
 set hidden         " Allows buffers to exists in background as hidden
 set lazyredraw     " Redraw after macros and not during
+set backspace=indent,eol,start
+set nrformats-=octal
+set autoread
+set fileformats+=mac
+set history=1000
+set tabpagemax=50
+if !empty(&viminfo)
+  set viminfo^=!
+endif
+
+set scrolloff=1
+set sidescrolloff=5
+
+set ttimeout
+set ttimeoutlen=50
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
 endif
+
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              Search settings                            {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set hlsearch             " Highlight search results
+set incsearch
 set ignorecase smartcase
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          Text editing improvements                      {{{1
@@ -127,11 +153,14 @@ set undofile
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Indentation                              {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set autoindent
 set smartindent
+set smarttab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
+set shiftround
 
 filetype plugin indent on
 
@@ -174,6 +203,8 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
+
+set wildmenu
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Scrolling                               {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

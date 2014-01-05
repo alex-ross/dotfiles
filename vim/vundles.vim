@@ -23,9 +23,6 @@ Bundle 'rizzatti/funcoo.vim'
 
 " General Vim improvements                                                {{{1
 " ----------------------------------------------------------------------------
-" Defaults everyone can agree on (according to tpope).
-Bundle 'tpope/vim-sensible'
-
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs.git'
