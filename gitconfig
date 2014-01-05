@@ -1,13 +1,13 @@
 [user]
-	name = Alexander Ross
-	email = izepax@gmail.com
+  name = Alexander Ross
+  email = izepax@gmail.com
 [core]
-	editor = vim
-	excludesfile = /Users/ross/.gitignore_global
+  editor = vim
+  excludesfile = /Users/ross/.gitignore_global
 [color]
-	ui = auto
+  ui = auto
 [alias]
-	root = !pwd
+  root = !pwd
   d = diff
   ds = diff --staged
   s = status -s -b
@@ -17,4 +17,4 @@
   ap = add -u -p
   l = log --pretty='format:%C(yellow)%h %C(blue)%ad %C(reset)%s%C(red)%d %C(green)%an%C(reset), %C(cyan)%ar' --date=short
 [push]
-	default = simple
+  default = simple
