@@ -3,7 +3,7 @@
 # vim: foldmethod=marker
 # ------------------------------------------------------------------------------
 
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 # Prezto                                                                    {{{1
 # ------------------------------------------------------------------------------
