@@ -10,6 +10,14 @@ snippet ife "If else statement" !b
 	${3}
 endsnippet
 
+snippet title "Title" w
+title ${1:`!p snip.rv = snip.basename or "Page title"`}
+endsnippet
+
+snippet charset "Meta charset tag" w
+meta charset="${1:utf-8}"
+endsnippet
+
 #######################################################################
 #                    Some useful Unicode entities                     #
 #######################################################################
@@ -96,5 +104,29 @@ endsnippet
 
 snippet fieldset "Fieldset with legend" !b
 fieldset
-	legend ${1}
+	legend $0
+endsnippet
+
+snippet input "Input" w
+input type="${1:text/submit/hidden/button}" name="${2:some_name}" value="$3"${4: id="${5:$2}"}
+endsnippet
+
+snippet bs_formgroup "[Bootstrap 3] form group with input" !b
+.form-group
+	label for="${1}" ${2:label text}
+	input.form-control type="${3:text}" id="$1" $0
+endsnippet
+
+snippet bs_forminline "[Bootstrap 3] Inline form" b!
+form.form-inline role="form"
+endsnippet
+
+snippet bs_formhor "[Bootstrap 3] Horizontal form" !b
+form.form-hotizontal role="form"
+endsnippet
+	
+snippet bs_checkbox "[Bootstrap 3] Checkbox" !b
+.checkbox: label
+	input type="checkbox"${1: value="${2}"}
+	| $0
 endsnippet
