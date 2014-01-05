@@ -270,3 +270,8 @@ function! <SID>SynStack() " {{{2
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunction " }}}
 nmap <leader>ss :call <SID>SynStack()<CR>
+
+function! CtagsGenerate()
+  exec 'call system("{ ctags -R . } &!")'
+endfunction
+command! -nargs=* CtagsGenerate call CtagsGenerate()
