@@ -8,6 +8,25 @@ ${0}
 endsnippet
 
 #######################################################################
+#                              MiniTest                               #
+#######################################################################
+snippet assertions "Adds minitest assertions module" b
+module MiniTest::Assertions
+	def assert_${1:something}(${2:object}, $3)
+		# assert $2 == $3, "Error"
+	end
+
+	def refute_$1($2, $3)
+		# assert $2 != $3, "Error"
+	end
+end
+
+${4:Object}.infect_an_assertion(:assert_$1, :must_${5:$1})
+$4.infect_an_assertion(:refute_$1, :wont_$5)
+endsnippet
+
+
+#######################################################################
 #                            Status codes                             #
 #######################################################################
 
