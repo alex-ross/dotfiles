@@ -47,6 +47,7 @@ ls -f  $HOME/.tmux_session_scripts/tm*.zsh | while read -r file; do source $file
 # ------------------------------------------------------------------------------
 alias reload='exec -l $SHELL'
 
+# Vim
 alias edit='vim'
 alias v='vim'
 alias vi='vim'
