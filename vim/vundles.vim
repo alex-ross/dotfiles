@@ -29,6 +29,7 @@ Bundle 'jistr/vim-nerdtree-tabs.git'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'editorconfig/editorconfig-vim'
 
 " For ag you need to install 'the_silver_searcher'
 " Read more here: https://github.com/rking/ag.vim
