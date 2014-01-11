@@ -43,6 +43,7 @@ task :install do
   end
 
   system %Q{mkdir -p ~/.tmp}
+  make_bin_executeable
 end
 
 def replace_file(file)
@@ -59,4 +60,8 @@ def link_public_ssh_key(file)
   puts "linking ~/.ssh/#{file}"
   system %Q{rm "$HOME/.ssh/#{file}"}
   system %Q{ln -s "$PWD/#{file}" "$HOME/.ssh/#{file}"}
+end
+
+def make_bin_executeable
+  system('chmod -R u+x bin')
 end
