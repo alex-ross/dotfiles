@@ -15,12 +15,6 @@ call vundle#rc()
 " let Vundle manage Vundle (required)
 Bundle 'gmarik/vundle'
 
-" Dependencies                                                            {{{1
-" ----------------------------------------------------------------------------
-" Funcoo
-"   - rizzatti/dash.vim
-Bundle 'rizzatti/funcoo.vim'
-
 " General Vim improvements                                                {{{1
 " ----------------------------------------------------------------------------
 Bundle 'kien/ctrlp.vim'
@@ -48,6 +42,7 @@ Bundle 'SirVer/ultisnips'
 " Third part applications                                                 {{{1
 " ----------------------------------------------------------------------------
 " Search Dash for documentation with `:Dash`
+Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 " Lots of git commands like `:Gcommit` and of course `:Git`
 Bundle 'tpope/vim-fugitive'
