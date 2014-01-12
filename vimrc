@@ -42,6 +42,9 @@ au VimResized * :wincmd =
 syntax reset
 syntax enable
 colorscheme vividchalk
+
+" Makes LineNr more visible
+hi LineNr ctermbg=234
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              General settings                           {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
