@@ -38,6 +38,10 @@ endif
 
 " Resize splits when window resizes
 au VimResized * :wincmd =
+
+syntax reset
+syntax enable
+colorscheme vividchalk
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              General settings                           {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

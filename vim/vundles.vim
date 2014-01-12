@@ -52,7 +52,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
 " Enables files to be open with line like this `vim index.html:20`
 Bundle 'bogado/file-line'
-Bundle 'altercation/vim-colors-solarized'
+" Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-vividchalk'
 
 " Additional syntaxes                                                     {{{1
 " ----------------------------------------------------------------------------
