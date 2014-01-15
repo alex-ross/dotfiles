@@ -48,7 +48,7 @@ hi LineNr ctermbg=234
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Statusline                              {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set statusline=%<%F       " Current file
+set statusline=%<%F\      " Current file
 set statusline+=%h        " Help flag
 set statusline+=%q        " '[Quickfix List]', '[Location List]' or empty
 set statusline+=%m        " Modifier flag
@@ -59,7 +59,7 @@ set statusline+=\ Column:%-9.(%4c%V%)
 set statusline+=\ %P
 
 " Syntastic status flag
-set statusline+=%#warningmsg#
+set statusline+=%#ErrorMsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%* " Resets highlight group to User
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -105,7 +105,7 @@ set ignorecase smartcase
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          Text editing improvements                      {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set spell spelllang=en_us      " Turns on spell checking
+set spelllang=en_us " Default spell language
 
 " Makes copy and paste behave normal
 set pastetoggle=<F2>
