@@ -25,6 +25,8 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'editorconfig/editorconfig-vim'
+" Enables files to be open with line like this `vim index.html:20`
+Bundle 'bogado/file-line'
 
 " For ag you need to install 'the_silver_searcher'
 " Read more here: https://github.com/rking/ag.vim
@@ -50,8 +52,6 @@ Bundle 'tpope/vim-fugitive'
 
 " Cosmetics, color schemes, powerline...                                  {{{1
 " ----------------------------------------------------------------------------
-" Enables files to be open with line like this `vim index.html:20`
-Bundle 'bogado/file-line'
 " Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-vividchalk'
 
