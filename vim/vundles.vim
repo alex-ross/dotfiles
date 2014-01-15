@@ -6,6 +6,8 @@
 " the command :BundleInstall from within vim or directly invoking it from the
 " command line with the following syntax:
 " vim --noplugin -u vim/vundles.vim -N "+set hidden" "+syntax on" +BundleClean! +BundleInstall +qall
+" 
+
 " Filetype off is required by vundle
 filetype off
 
@@ -19,7 +21,6 @@ Bundle 'gmarik/vundle'
 " ----------------------------------------------------------------------------
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs.git'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/syntastic'
