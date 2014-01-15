@@ -46,6 +46,23 @@ colorscheme vividchalk
 " Makes LineNr more visible
 hi LineNr ctermbg=234
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 Statusline                              {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set statusline=%<%F       " Current file
+set statusline+=%h        " Help flag
+set statusline+=%q        " '[Quickfix List]', '[Location List]' or empty
+set statusline+=%m        " Modifier flag
+set statusline+=%r        " Readonly flag
+set statusline+=%=        " Switch to right side
+set statusline+=\ Line:%4l/%-4L
+set statusline+=\ Column:%-9.(%4c%V%)
+set statusline+=\ %P
+
+" Syntastic status flag
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%* " Resets highlight group to User
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              General settings                           {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf-8 " Default encoding

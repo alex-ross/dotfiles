@@ -49,7 +49,6 @@ Bundle 'tpope/vim-fugitive'
 
 " Cosmetics, color schemes, powerline...                                  {{{1
 " ----------------------------------------------------------------------------
-Bundle 'bling/vim-airline'
 " Enables files to be open with line like this `vim index.html:20`
 Bundle 'bogado/file-line'
 " Bundle 'altercation/vim-colors-solarized'
@@ -61,7 +60,6 @@ Bundle 'tpope/vim-vividchalk'
 Bundle 'sheerun/vim-polyglot'
 Bundle 'alex-ross/vim-rabl'
 Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'freitass/todo.txt-vim'
 
 " Plugins for ruby and ruby on rails                                      {{{1
 " ----------------------------------------------------------------------------
