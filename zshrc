@@ -65,6 +65,9 @@ alias gc='git commit'
 # Ruby
 alias be='noglob bundle exec'
 alias brake='bundle exec rake'
+alias annomigrate="bundle exec rake db:migrate && bundle exec rake db:test:prepare && bundle exec annotate"
 
-# Fat finger aliases
-alias cd..='cd ..'
+# todo.txt
+if which todo.sh > /dev/null; then
+  alias t='todo.sh'
+fi
