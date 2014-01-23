@@ -4,13 +4,11 @@
 # ------------------------------------------------------------------------------
 
 export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
-
-# Prezto                                                                    {{{1
-# ------------------------------------------------------------------------------
-# Source Prezto if it exists at right location.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+fpath=(
+  $fpath
+  $(brew --prefix)/share/zsh/site-functions
+  ~/.zsh/functions
+)
 
 # General                                                                   {{{1
 # ------------------------------------------------------------------------------
@@ -21,6 +19,13 @@ stty stop undef
 
 # Rbenv                                                                     {{{1
 # ------------------------------------------------------------------------------
+if [[ -s "${ZDOTDIR:-$HOME}/.rbenv/bin" ]]; then
+  export PATH="${ZDOTDIR:-$HOME}/.rbenv/bin:$PATH"
+fi
+if [[ -s "${ZDOTDIR:-$HOME}/.rbenv/plugins/ruby-build/bin" ]]; then
+  export PATH="${ZDOTDIR:-$HOME}/.rbenv/plugins/ruby-build/bin:$PATH"
+fi
+#export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then
   # If 'rbenv' appears in /usr/local/var we use it as rbenv root. That will be
   # the case if it's installed with homebrew.
@@ -46,6 +51,7 @@ ls -f  $HOME/.tmux_session_scripts/tm*.zsh | while read -r file; do source $file
 # Aliases                                                                   {{{1
 # ------------------------------------------------------------------------------
 alias reload='exec -l $SHELL'
+alias ll='ls -l'
 
 # Vim
 alias edit='vim'
@@ -71,3 +77,53 @@ alias annomigrate="bundle exec rake db:migrate && bundle exec rake db:test:prepa
 if which todo.sh > /dev/null; then
   alias t='todo.sh'
 fi
+
+
+# Prompt                                                                    {{{1
+# ------------------------------------------------------------------------------
+autoload -Uz set-sprompt
+set-sprompt "$@"
+
+# Show vi command line mode in right prompt
+function zle-line-init zle-keymap-select {
+    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    RPS2=$RPS1
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+function set-prompt {
+  viminfo="${VIM:+"(%B%F{green}vim%b%f) "}"
+  PROMPT="$viminfo%B%F{yellow}%%%b%f "
+}
+
+set-prompt "$@"
+
+# Key bindings                                                              {{{1
+# ------------------------------------------------------------------------------
+# User vi key bindings
+bindkey -v
+
+# Edit command line in $EDITOR when 'v' is pressed in command/normal mode
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd "v" edit-command-line
+
+# Undo with 'u'
+bindkey -M vicmd "u" undo
+# Redo with '^r'
+bindkey -M vicmd "\C-r" redo
+
+# Search in history
+bindkey -M vicmd "?" history-incremental-search-backward
+bindkey -M vicmd "/" history-incremental-search-forward
+
+# Makes delete work as expected
+# "^[[3~" == Delete
+bindkey "^[[3~" delete-char
+# Makes backspace work as expected
+# "^?" == Backspace
+bindkey "^?" backward-delete-char
+
+
