@@ -10,6 +10,8 @@ fpath=(
   ~/.zsh/functions
 )
 
+autoload -Uz compinit && compinit
+
 # General                                                                   {{{1
 # ------------------------------------------------------------------------------
 # Don't use C-s and C-q for XON/XOFF protocol. This let us rebind them in vim.
@@ -60,7 +62,7 @@ alias vi='vim'
 alias vinstall='vim +BundleClean! +BundleInstall +qall'
 
 # Directories
-alias code='cd ~/code'
+# alias code='cd ~/code'
 alias dotfiles='cd ~/.dotfiles'
 
 # Git
@@ -78,6 +80,10 @@ if which todo.sh > /dev/null; then
   alias t='todo.sh'
 fi
 
+# Go to code directory
+c() { cd ~/code/$1; }
+_c() { _files -W ~/code -/; }
+compdef _c c
 
 # Prompt                                                                    {{{1
 # ------------------------------------------------------------------------------
