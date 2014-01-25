@@ -93,28 +93,39 @@ if which todo.sh > /dev/null; then
 fi
 
 # Go to code directory
-c() { cd ~/code/$1; }
-_c() { _files -W ~/code -/; }
-compdef _c c
+# c() { cd ~/code/$1; }
+# _c() { _files -W ~/code -/; }
+# compdef _c c
+
 
 # Prompt                                                                    {{{1
 # ------------------------------------------------------------------------------
+vimnormal="%b%f[%B%F{yellow}N%b%f] "
+viminsert="%b%f[%B%F{green}I%b%f] "
 
-# Show vi command line mode in right prompt
 function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-    RPS2=$RPS1
+    vimmode="${${KEYMAP/vicmd/$vimnormal}/(main|viins)/$viminsert}"
+    set-prompt $vimmode
+
     zle reset-prompt
 }
+
 zle -N zle-line-init
 zle -N zle-keymap-select
 
 function set-prompt {
-  viminfo="${VIM:+"(%B%F{green}vim%b%f) "}"
-  PROMPT="$viminfo%B%F{yellow}%%%b%f "
+  vimmode=$1
+  viminfo="${VIM:+"(%B%F{magenta}vim%b%f) "}"
+  host="%b%f%m"
+  suffix="%b%F{green}%%%b%f "
+  PROMPT="$vimmode$viminfo$host$suffix"
 }
 
-set-prompt "$@"
+# Show current directory in right prompt
+RPROMPT='| %~'
+
+# Init prompt
+set-prompt $viminsert
 
 # Key bindings                                                              {{{1
 # ------------------------------------------------------------------------------
