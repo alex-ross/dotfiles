@@ -46,6 +46,23 @@ fi
 # Load my predefined tmux sessions
 ls -f  $HOME/.tmux_session_scripts/tm*.zsh | while read -r file; do source $file; done
 
+# Complete settings                                                         {{{1
+# ------------------------------------------------------------------------------
+# add custom completion scripts
+fpath=(~/.zsh/completion $fpath) 
+
+# compsys initialization
+autoload -Uz compinit
+compinit
+
+# show completion menu when number of options is at least 2
+zstyle ':completion:*' menu select=2
+# Functions                                                                 {{{1
+# ------------------------------------------------------------------------------
+fpath=(~/.zsh/functions $fpath)
+
+autoload -Uz code
+
 # Aliases                                                                   {{{1
 # ------------------------------------------------------------------------------
 alias reload='exec -l $SHELL'
@@ -58,7 +75,6 @@ alias vi='vim'
 alias vinstall='vim +BundleClean! +BundleInstall +qall'
 
 # Directories
-# alias code='cd ~/code'
 alias dotfiles='cd ~/.dotfiles'
 
 # Git
