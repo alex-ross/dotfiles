@@ -57,10 +57,44 @@ Bundle 'tpope/vim-vividchalk'
 
 " Additional syntaxes                                                     {{{1
 " ----------------------------------------------------------------------------
-" Lots of language support
-Bundle 'sheerun/vim-polyglot'
+" Ruby
+Bundle 'vim-ruby/vim-ruby'
+
+" Rabl - Ruby JSON bulder
 Bundle 'alex-ross/vim-rabl'
+
+" Slim-lang
+Bundle 'slim-template/vim-slim'
+
+" Rspec
+Bundle 'Keithbsmiley/rspec.vim'
+
+" Coffee Script
+Bundle 'kchmck/vim-coffee-script'
+
+" Extends javascript syntax for libraries like jQuery and AngularJS
 Bundle 'othree/javascript-libraries-syntax.vim'
+
+" PHP
+Bundle 'StanAngeloff/php.vim'
+
+" Markdown
+Bundle 'tpope/vim-markdown'
+
+" CSV
+Bundle 'chrisbra/csv.vim'
+
+" HTML5
+Bundle 'othree/html5.vim'
+
+" Git runtime files
+Bundle 'tpope/vim-git'
+
+" Less
+Bundle 'groenewege/vim-less'
+
+" CSS and SCSS
+Bundle 'hail2u/vim-css3-syntax'
 
 " Plugins for ruby and ruby on rails                                      {{{1
 " ----------------------------------------------------------------------------
