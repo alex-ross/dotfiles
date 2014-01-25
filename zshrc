@@ -83,8 +83,6 @@ compdef _c c
 
 # Prompt                                                                    {{{1
 # ------------------------------------------------------------------------------
-autoload -Uz set-sprompt
-set-sprompt "$@"
 
 # Show vi command line mode in right prompt
 function zle-line-init zle-keymap-select {
