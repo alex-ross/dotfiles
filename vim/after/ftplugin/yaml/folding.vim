@@ -8,11 +8,11 @@ function! YamlFoldMethod(line)
   if indent(a:line) < indent(a:line-1) && s:IsKey(a:line) && s:IsKey(a:line-1)
     " Start new fold when current line is less indented than previous one and
     " both lines starts with a yaml key
-    return '>' . indent(a:line) / 2
+    return '>' . (indent(a:line) / 2)
   elseif indent(a:line) < indent(a:line+1) && s:IsKey(a:line) && s:IsKey(a:line+1)
     " Start new fold when current line is less indented than next one and both
     " lines starts with a yaml key
-    return '>' . indent(a:line) / 2
+    return '>' . (indent(a:line) / 2)
   else
     " Else keep foldlevel from previous line.
     return '='
@@ -31,7 +31,7 @@ function! YamlFoldText()
 endfunction
 
 " Uncomment while debugging
-" setlocal foldcolumn=10
+setlocal foldcolumn=10
 
 setlocal foldmethod=expr
 setlocal foldexpr=YamlFoldMethod(v:lnum)
