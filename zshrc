@@ -4,13 +4,6 @@
 # ------------------------------------------------------------------------------
 
 export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
-fpath=(
-  $fpath
-  $(brew --prefix)/share/zsh/site-functions
-  ~/.zsh/functions
-)
-
-autoload -Uz compinit && compinit
 
 # General                                                                   {{{1
 # ------------------------------------------------------------------------------
@@ -43,6 +36,9 @@ fi
 if which brew > /dev/null; then
   # Mysql
   export PATH=$PATH:$(brew --prefix mysql)/bin
+
+  # zsh functions
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fi
 
 # Tmux                                                                      {{{1
