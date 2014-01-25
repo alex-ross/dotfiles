@@ -76,6 +76,7 @@ alias vinstall='vim +BundleClean! +BundleInstall +qall'
 
 # Directories
 alias dotfiles='cd ~/.dotfiles'
+alias c='code'
 
 # Git
 alias g='git'
@@ -91,12 +92,6 @@ alias annomigrate="bundle exec rake db:migrate && bundle exec rake db:test:prepa
 if which todo.sh > /dev/null; then
   alias t='todo.sh'
 fi
-
-# Go to code directory
-# c() { cd ~/code/$1; }
-# _c() { _files -W ~/code -/; }
-# compdef _c c
-
 
 # Prompt                                                                    {{{1
 # ------------------------------------------------------------------------------
