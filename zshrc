@@ -91,16 +91,20 @@ alias annomigrate="bundle exec rake db:migrate && bundle exec rake db:test:prepa
 # todo.txt
 if which todo.sh > /dev/null; then
   alias t='todo.sh'
+  alias tedit='vim ~/Dropbox/todo/todo.txt'
 fi
 
 # Prompt                                                                    {{{1
 # ------------------------------------------------------------------------------
-vimnormal="%b%f[%B%F{yellow}N%b%f] "
-viminsert="%b%f[%B%F{green}I%b%f] "
+vimnormal_prefix="%b%F{yellow}■N■%b%f "
+viminsert_prefix="%b%F{green}■I■%b%f "
+vimnormal_suffix=" %b%F{yellow}▶%b%f "
+viminsert_suffix=" %b%F{green}▶%b%f "
 
 function zle-line-init zle-keymap-select {
-    vimmode="${${KEYMAP/vicmd/$vimnormal}/(main|viins)/$viminsert}"
-    set-prompt $vimmode
+    vimmode_prefix="${${KEYMAP/vicmd/$vimnormal_prefix}/(main|viins)/$viminsert_prefix}"
+    vimmode_suffix="${${KEYMAP/vicmd/$vimnormal_suffix}/(main|viins)/$viminsert_suffix}"
+    set-prompt $vimmode_prefix $vimmode_suffix
 
     zle reset-prompt
 }
@@ -109,18 +113,18 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 function set-prompt {
-  vimmode=$1
-  viminfo="${VIM:+"(%B%F{magenta}vim%b%f) "}"
+  vimmode_prefix=$1
+  vimmode_suffix=$2
+  viminfo="${VIM:+"[%B%F{magenta}vim%b%f] "}"
   host="%b%f%m"
-  suffix="%b%F{green}%%%b%f "
-  PROMPT="$vimmode$viminfo$host$suffix"
+  PROMPT="$vimmode_prefix$viminfo$host$vimmode_suffix"
 }
 
 # Show current directory in right prompt
 RPROMPT='| %~'
 
 # Init prompt
-set-prompt $viminsert
+set-prompt $viminsert_prefix $viminsert_suffix
 
 # Key bindings                                                              {{{1
 # ------------------------------------------------------------------------------
