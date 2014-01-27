@@ -41,11 +41,6 @@ if which brew > /dev/null; then
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fi
 
-# Tmux                                                                      {{{1
-# ------------------------------------------------------------------------------
-# Load my predefined tmux sessions
-ls -f  $HOME/.tmux_session_scripts/tm*.zsh | while read -r file; do source $file; done
-
 # Complete settings                                                         {{{1
 # ------------------------------------------------------------------------------
 # add custom completion scripts
