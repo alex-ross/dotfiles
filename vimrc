@@ -296,6 +296,11 @@ function! <SID>SynStack() " {{{2
 endfunction " }}}
 nmap <leader>ss :call <SID>SynStack()<CR>
 
+function! Todo()
+  e ~/Dropbox/todo/todo.txt
+endfunction
+command! Todo call Todo()
+
 function! CtagsGenerate()
   exec 'call system("{ ctags -R . } &!")'
 endfunction
