@@ -31,7 +31,7 @@ function! YamlFoldText()
 endfunction
 
 " Uncomment while debugging
-setlocal foldcolumn=10
+" setlocal foldcolumn=10
 
 setlocal foldmethod=expr
 setlocal foldexpr=YamlFoldMethod(v:lnum)
