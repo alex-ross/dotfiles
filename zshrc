@@ -61,7 +61,7 @@ zstyle ':completion:*' menu select=2
 # ------------------------------------------------------------------------------
 fpath=(~/.zsh/functions $fpath)
 
-autoload -Uz code
+autoload -Uz code armux
 
 # Aliases                                                                   {{{1
 # ------------------------------------------------------------------------------

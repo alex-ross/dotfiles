@@ -1,0 +1,4 @@
+#compdef armux
+
+_files -W ~/.armux -/
+
