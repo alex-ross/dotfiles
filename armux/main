@@ -1,0 +1,3 @@
+cd $BASE
+TMUX= tmux new-session -d -s $SESSION_NAME
+tmux select-window -t 1
