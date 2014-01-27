@@ -1,11 +1,11 @@
-BASE="/Users/ross/code/vvs_branschen/kub/"
+BASE="$HOME/code/vvs_branschen/kub/"
 cd $BASE
 
 # Create the session and the first window.
 TMUX= tmux new-session -d -s $SESSION_NAME -n editor
 
 # Set the default path.
-tmux set-option -t $SESSION_NAME default-path ~/code/Extra-Brain 1>/dev/null
+tmux set-option -t $SESSION_NAME default-path ~/code/vvs_branschen/kub 1>/dev/null
 
 # Window 2
 tmux new-window -c $BASE -t $SESSION_NAME:2 -n "server | tests"
