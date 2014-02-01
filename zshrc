@@ -91,10 +91,17 @@ fi
 
 # Prompt                                                                    {{{1
 # ------------------------------------------------------------------------------
-vimnormal_prefix="%b%F{yellow}■N■%b%f "
-viminsert_prefix="%b%F{green}■I■%b%f "
-vimnormal_suffix=" %b%F{yellow}▶%b%f "
-viminsert_suffix=" %b%F{green}▶%b%f "
+if [[ $TERM == 'dumb' ]]; then
+  vimnormal_prefix="■N■ "
+  viminsert_prefix="■I■ "
+  vimnormal_suffix=" ▶ "
+  viminsert_suffix=" ▶ "
+else
+  vimnormal_prefix="%b%F{yellow}■N■%b%f "
+  viminsert_prefix="%b%F{green}■I■%b%f "
+  vimnormal_suffix=" %b%F{yellow}▶%b%f "
+  viminsert_suffix=" %b%F{green}▶%b%f "
+fi
 
 function zle-line-init zle-keymap-select {
     vimmode_prefix="${${KEYMAP/vicmd/$vimnormal_prefix}/(main|viins)/$viminsert_prefix}"
@@ -110,8 +117,12 @@ zle -N zle-keymap-select
 function set-prompt {
   vimmode_prefix=$1
   vimmode_suffix=$2
-  viminfo="${VIM:+"[%B%F{magenta}vim%b%f] "}"
-  host="%b%f%m"
+  if [[ $TERM == 'dumb' ]]; then
+    viminfo="${VIM:+"[vim] "}"
+  else
+    viminfo="${VIM:+"[%B%F{magenta}vim%b%f] "}"
+  fi
+  host="%m"
   PROMPT="$vimmode_prefix$viminfo$host$vimmode_suffix"
 }
 
