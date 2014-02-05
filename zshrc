@@ -158,4 +158,3 @@ bindkey "^[[3~" delete-char
 # "^?" == Backspace
 bindkey "^?" backward-delete-char
 
-
