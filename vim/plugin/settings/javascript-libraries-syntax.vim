@@ -1,2 +1,2 @@
-let g:used_javascript_libs = 'jquery,underscore,angularjs'
+let g:used_javascript_libs = 'underscore,angularjs'
 
