@@ -13,9 +13,10 @@
   s = status -s -b
   c = commit -v
   co = checkout
-  a = add -u
+  a = add
   ap = add -u -p
   l = log --pretty='format:%C(yellow)%h %C(blue)%ad %C(reset)%s%C(red)%d %C(green)%an%C(reset), %C(cyan)%ar' --date=short
 	conflicts = !git ls-files -u | cut -f 2 | sort -u
+  up = !git fetch origin && git rebase origin/master
 [push]
   default = simple
