@@ -14,10 +14,14 @@
   c = commit -v
   cm = commit -m 
   co = checkout
+  cob = checkout -b
   a = add
   ap = add -u -p
+  aa = !git add -u && git add . && git status
   l = log --pretty='format:%C(yellow)%h %C(blue)%ad %C(reset)%s%C(red)%d %C(green)%an%C(reset), %C(cyan)%ar' --date=short
 	conflicts = !git ls-files -u | cut -f 2 | sort -u
   up = !git fetch origin && git rebase origin/master
+  ptrack = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
+  pr = !hub pull-request
 [push]
   default = simple
