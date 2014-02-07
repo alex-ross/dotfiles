@@ -92,15 +92,15 @@ fi
 # Prompt                                                                    {{{1
 # ------------------------------------------------------------------------------
 if [[ $TERM == 'dumb' ]]; then
-  vimnormal_prefix="■N■ "
-  viminsert_prefix="■I■ "
-  vimnormal_suffix=" ▶ "
-  viminsert_suffix=" ▶ "
+  vimnormal_prefix="•N• "
+  viminsert_prefix="•I• "
+  vimnormal_suffix=" $ "
+  viminsert_suffix=" $ "
 else
-  vimnormal_prefix="%b%F{yellow}■N■%b%f "
-  viminsert_prefix="%b%F{green}■I■%b%f "
-  vimnormal_suffix=" %b%F{yellow}▶%b%f "
-  viminsert_suffix=" %b%F{green}▶%b%f "
+  vimnormal_prefix="%b%F{yellow}•N•%b%f "
+  viminsert_prefix="%b%F{green}•I•%b%f "
+  vimnormal_suffix=" %b%F{yellow}$%b%f "
+  viminsert_suffix=" %b%F{green}$%b%f "
 fi
 
 function zle-line-init zle-keymap-select {
