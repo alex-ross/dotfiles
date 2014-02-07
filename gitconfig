@@ -23,5 +23,6 @@
   up = !git fetch origin && git rebase origin/master
   ptrack = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
   pr = !hub pull-request
+  current-branch = rev-parse --abbrev-ref HEAD
 [push]
   default = simple
