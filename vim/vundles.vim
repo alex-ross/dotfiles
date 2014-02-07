@@ -40,6 +40,7 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'godlygeek/tabular'
+Bundle 'ervandew/supertab'
 Bundle 'SirVer/ultisnips'
 
 " Third part applications                                                 {{{1
@@ -101,6 +102,10 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rbenv'
+
+" Visual in or around ruby block with vir/var and so on
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
 
 " }}}1
 "Filetype plugin indent on is required by vundle
