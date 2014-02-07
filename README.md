@@ -36,3 +36,10 @@ exec -l $SHELL
 ```
 
 Done!
+
+## Font
+
+I like to use **Incosolata** font. It's free and can be downloaded
+[here][inconsolata].
+
+[inconsolata]: http://www.levien.com/type/myfonts/inconsolata.html
