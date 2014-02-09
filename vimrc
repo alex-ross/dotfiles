@@ -45,12 +45,17 @@ hi LineNr ctermbg=234
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Statusline                              {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set statusline=%<%F\      " Current file
-set statusline+=%h        " Help flag
-set statusline+=%q        " '[Quickfix List]', '[Location List]' or empty
-set statusline+=%m        " Modifier flag
-set statusline+=%r        " Readonly flag
-set statusline+=%=        " Switch to right side
+function! SpellLangFlag()
+  return &spell ? '[' . &spelllang . ']' : ''
+endfunction
+
+set statusline=%<%F\               " Current file
+set statusline+=%h                 " Help flag
+set statusline+=%q                 " '[Quickfix List]', '[Location List]' or empty
+set statusline+=%m                 " Modifier flag
+set statusline+=%r                 " Readonly flag
+set statusline+=%{SpellLangFlag()} " Spell language flag
+set statusline+=%=                 " Switch to right side
 set statusline+=\ Line:%4l/%-4L
 set statusline+=\ Column:%-9.(%4c%V%)
 set statusline+=\ %P
@@ -102,6 +107,7 @@ set ignorecase smartcase
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          Text editing improvements                      {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set spell           " Turns on spell check
 set spelllang=en_us " Default spell language
 
 " Makes copy and paste behave normal
