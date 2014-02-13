@@ -25,7 +25,6 @@ set list
 set showbreak=\ ↪\ 
 set laststatus=2
 set showcmd
-set showmatch
 
 " Resize splits when window resizes
 au VimResized * :wincmd =
@@ -100,9 +99,11 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              Search settings                            {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set hlsearch             " Highlight search results
-set incsearch
-set ignorecase smartcase
+set hlsearch             " Highlight search results.
+set incsearch            " Incremental searching.
+set showmatch            " Jump to matches when entering regexp.
+set ignorecase           " Ignore case when searching.
+set smartcase            " Don't ignore case when uppercase char is present.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          Text editing improvements                      {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
