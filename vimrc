@@ -24,7 +24,6 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set list
 set showbreak=\ ↪\ 
 set laststatus=2
-set ruler
 set showcmd
 set showmatch
 
