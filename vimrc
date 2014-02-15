@@ -54,9 +54,8 @@ set statusline+=%m                 " Modifier flag
 set statusline+=%r                 " Readonly flag
 set statusline+=%{SpellLangFlag()} " Spell language flag
 set statusline+=%=                 " Switch to right side
-set statusline+=\ Line:%4l/%-4L
-set statusline+=\ Column:%-9.(%4c%V%)
-set statusline+=\ %P
+set statusline+=\ Line:%4l/%-4L    " Line number
+set statusline+=\ Column:%3v\      " Column number
 
 " Syntastic status flag
 set statusline+=%#ErrorMsg#
