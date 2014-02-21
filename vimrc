@@ -125,6 +125,15 @@ nnoremap tj :tabprev<CR>
 nnoremap th :tabmove -1<CR>
 nnoremap tl :tabmove +1<CR>
 
+function! ToggleSpellLang()
+  if &spelllang == 'sv'
+    setlocal spelllang=en_us
+  else
+    setlocal spelllang=sv
+  endif
+endfunction
+nnoremap <leader>sl :call ToggleSpellLang()<CR>
+
 " Enter special chars with <C-d>. <C-k> is taken to swap panes.
 inoremap <C-d> <C-k>
 
