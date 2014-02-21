@@ -31,15 +31,9 @@ au VimResized * :wincmd =
 
 syntax reset
 syntax enable
-colorscheme vividross
-
-augroup reload_theme_on_change
-    au!
-    au BufWritePost vividross.vim colorscheme vividross
-augroup END
-
-" Makes LineNr more visible
-hi LineNr ctermbg=234
+set background=dark
+colorscheme lucius
+LuciusDark
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Statusline                              {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -55,6 +55,7 @@ Bundle 'tpope/vim-fugitive'
 " ----------------------------------------------------------------------------
 " Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-vividchalk'
+Bundle "jonathanfilip/vim-lucius"
 
 " Additional syntaxes                                                     {{{1
 " ----------------------------------------------------------------------------
