@@ -1,33 +1,44 @@
+Xft.antialias:           true
+Xft.hinting:             true
+Xft.hintstyle:           3
 /*********************************************************************
  *                            Term colors                            *
  *********************************************************************/
+*background:  #303030
+*foreground:  #d7d7d7
+*cursorColor: #87afd7
+*color0:      #303030
+*color8:      #303030
+*color1:      #ff5f5f
+*color9:      #ff5f5f
+*color2:      #afd787
+*color10:     #afd787
+*color3:      #d7d7af
+*color11:     #d7d7af
+*color4:      #87d7ff
+*color12:     #87d7ff
+*color5:      #d7afd7
+*color13:     #d7afd7
+*color6:      #87d7af
+*color14:     #87d7af
+*color7:      #d7d7d7
+*color15:     #d7d7d7
+/*********************************************************************
+ *                          Xterm resources                          *
+ *********************************************************************/
+xterm*VT100.geometry:     80x25
+xterm*faceName:           Inconsolata
+xterm*faceSize:           13
+!xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+xterm*dynamicColors:      true
+xterm*utf8:               2
+xterm*eightBitInput:      true
+xterm*saveLines:          512
+xterm*scrollKey:          true
+xterm*scrollTtyOutput:    false
+xterm*scrollBar:          true
+xterm*rightScrollBar:     true
+xterm*jumpScroll:         true
+xterm*multiScroll:        true
+xterm*toolBar:            false
 
-!black
-*color0: #222222
-*color8: #454545
-
-!red
-*color1: #9E5641
-*color9: #CC896D
-!green
-*color2: #6C7E55
-*color10: #C4DF90
-!yellow
-*color3: #CAAF2B
-*color11: #FFE080
-!blue
-*color4: #7FB8D8
-*color12: #B8DDEA
-!magenta
-*color5: #956D9D
-*color13: #C18FCB
-!cyan
-*color6: #4c8ea1
-*color14: #6bc1d0
-!white
-*color7: #808080
-*color15: #cdcdcd
-
-*borderColor: #343434
-*background: #343434
-*foreground: #cdcdcd
