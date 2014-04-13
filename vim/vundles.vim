@@ -28,6 +28,9 @@ Bundle 'editorconfig/editorconfig-vim'
 " Enables files to be open with line like this `vim index.html:20`
 Bundle 'bogado/file-line'
 
+" Enables tasks to be runned at temporary tmux pane
+Bundle 'tpope/vim-dispatch'
+
 " For ag you need to install 'the_silver_searcher'
 " Read more here: https://github.com/rking/ag.vim
 Bundle 'rking/ag.vim'
