@@ -3,6 +3,7 @@ syntax keyword rubyTestMethod
       \ assert_block
       \ assert_empty
       \ assert_equal
+      \ assert_difference
       \ assert_in_delta
       \ assert_in_epsilon
       \ assert_includes
