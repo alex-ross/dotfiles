@@ -61,13 +61,17 @@ fi
 
 # Temporary Files                                                           {{{1
 # ------------------------------------------------------------------------------
-if [[ ! -d "$TMPDIR" ]]; then
-  export TMPDIR="/tmp/$USER"
-  mkdir -p -m 700 "$TMPDIR"
-fi
+if [[ "$OSTYPE" == darwin* ]]; then
+  export TMPDIR="/private/tmp"
+else
+  if [[ ! -d "$TMPDIR" ]]; then
+    export TMPDIR="/tmp/$USER"
+    mkdir -p -m 700 "$TMPDIR"
+  fi
 
-TMPPREFIX="${TMPDIR%/}/zsh"
-if [[ ! -d "$TMPPREFIX" ]]; then
-  mkdir -p "$TMPPREFIX"
+  TMPPREFIX="${TMPDIR%/}/zsh"
+  if [[ ! -d "$TMPPREFIX" ]]; then
+    mkdir -p "$TMPPREFIX"
+  fi
 fi
 
