@@ -8,13 +8,14 @@ Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
 Xft.hinting: 1
 Xft.antialias: 1
-Xft.rgba: rgb
+Xft.rgba: rgba
 /*********************************************************************
  *                          Xterm resources                          *
  *********************************************************************/
-xterm*VT100.geometry:     80x25
-xterm*faceName:           Inconsolata
-xterm*faceSize:           13
+xterm*VT100.geometry:     85x25
+! xterm*faceName:           Inconsolata
+xterm*faceName:           Monaco
+xterm*faceSize:           11
 !xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 xterm*dynamicColors:      true
 xterm*utf8:               2
@@ -29,6 +30,12 @@ xterm*multiScroll:        true
 xterm*toolBar:            false
 ! *customization: -color
 XTerm*termName:  xterm-256color
+
+! Fixes issue with Ctrl+H
+XTerm*ttyModes:         erase ^?
+XTerm*VT100.Translations: \
+        #override <Key>BackSpace: string(0x7f) \n\
+        <Key>Delete:    string(0x1b) string("[3~")
 /*********************************************************************
  *                            Term colors                            *
  *********************************************************************/
