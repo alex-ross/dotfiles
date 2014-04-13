@@ -10,11 +10,10 @@ tmux set-option -t $SESSION_NAME default-path ~/code/vvs_branschen/kub 1>/dev/nu
 # Window 2
 tmux new-window -c $BASE -t $SESSION_NAME:2 -n "server | tests"
 tmux split-window -t $SESSION_NAME:2.1 -h -p 50
-tmux split-window -t $SESSION_NAME:2.2 -v -p 50
+# tmux split-window -t $SESSION_NAME:2.2 -v -p 50
 
 tmux send-keys -t $SESSION_NAME:1 "vim" C-m
-tmux send-keys -t $SESSION_NAME:2.1 "bundle exec rails server" C-m
-tmux send-keys -t $SESSION_NAME:2.2 "bundle exec guard" C-m
-tmux send-keys -t $SESSION_NAME:2.3 "bundle exec rake test:karma:unit" C-m
+tmux send-keys -t $SESSION_NAME:2.1 "bundle exec guard" C-m
+tmux send-keys -t $SESSION_NAME:2.2 "bundle exec rake test:karma:unit" C-m
 
 tmux select-window -t $SESSION_NAME:1
