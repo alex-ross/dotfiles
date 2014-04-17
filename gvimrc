@@ -1,5 +1,5 @@
 " Font settings
-set gfn=Source\ Code\ Pro\ Light:h13
+set gfn=Monaco:h12
 
 " No blinking cursor
 set guicursor+=a:blinkon0
