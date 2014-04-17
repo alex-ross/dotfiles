@@ -3,4 +3,6 @@ vim/bundle
 vim/doc/tags-ja
 vim/backups
 emacs.d/el-get
+emacs.d/.ido.last
+emacs.d/ac-comphist.dat
 *~

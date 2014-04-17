@@ -39,10 +39,9 @@
 
 ;; choose your own fonts, in a system dependant way
 (if (string-match "apple-darwin" system-configuration)
-    (set-face-font 'default "Monaco-13")
+    (set-face-font 'default "Source Code Pro-12")
   (set-face-font 'default "Monospace-10"))
 
-(global-hl-line-mode)			; highlight current line
 (global-linum-mode 1)			; add line numbers on the left
 
 ;; under mac, have Command as Meta and keep Option for localized input
