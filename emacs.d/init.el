@@ -88,6 +88,9 @@
 ;; Well the real default would be C-c C-j C-y C-c C-k.
 (define-key term-raw-map  (kbd "C-y") 'term-paste)
 
+;; Use Emacs terminfo, not system terminfo
+(setq system-uses-terminfo nil)
+
 ;; use ido for minibuffer completion
 (require 'ido)
 (ido-mode t)

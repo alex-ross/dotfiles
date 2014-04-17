@@ -12,6 +12,12 @@ stty -ixon
 stty stop undef
 
 
+# Base16 shell
+# --------------
+#BASE16_SCHEME="default"
+#BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
+#[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
 # Rbenv                                                                     {{{1
 # ------------------------------------------------------------------------------
 if [[ -s "${ZDOTDIR:-$HOME}/.rbenv/bin" ]]; then
@@ -63,6 +69,10 @@ autoload -Uz code armux
 alias reload='exec -l $SHELL'
 alias ll='ls -l'
 
+# Ftp (OSX)
+alias ftp-enable="sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist"
+alias ftp-disable="sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist"
+
 # Vim
 alias edit='vim'
 alias v='vim'
@@ -92,13 +102,13 @@ fi
 # Prompt                                                                    {{{1
 # ------------------------------------------------------------------------------
 if [[ $TERM == 'dumb' ]]; then
-  vimnormal_prefix="•N• "
-  viminsert_prefix="•I• "
+  vimnormal_prefix="-N- "
+  viminsert_prefix="-I- "
   vimnormal_suffix=" $ "
   viminsert_suffix=" $ "
 else
-  vimnormal_prefix="%b%F{yellow}•N•%b%f "
-  viminsert_prefix="%b%F{green}•I•%b%f "
+  vimnormal_prefix="%b%F{yellow}-N-%b%f "
+  viminsert_prefix="%b%F{green}-I-%b%f "
   vimnormal_suffix=" %b%F{yellow}$%b%f "
   viminsert_suffix=" %b%F{green}$%b%f "
 fi
@@ -124,6 +134,7 @@ function set-prompt {
   fi
   host="%m"
   PROMPT="$vimmode_prefix$viminfo$host$vimmode_suffix"
+  PROMPT="$viminfo$host$vimmode_suffix"
 }
 
 # Show current directory in right prompt
@@ -132,29 +143,5 @@ RPROMPT='| %~'
 # Init prompt
 set-prompt $viminsert_prefix $viminsert_suffix
 
-# Key bindings                                                              {{{1
-# ------------------------------------------------------------------------------
-# User vi key bindings
-bindkey -v
-
-# Edit command line in $EDITOR when 'v' is pressed in command/normal mode
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey -M vicmd "v" edit-command-line
-
-# Undo with 'u'
-bindkey -M vicmd "u" undo
-# Redo with '^r'
-bindkey -M vicmd "\C-r" redo
-
-# Search in history
-bindkey -M vicmd "?" history-incremental-search-backward
-bindkey -M vicmd "/" history-incremental-search-forward
-
-# Makes delete work as expected
-# "^[[3~" == Delete
-bindkey "^[[3~" delete-char
-# Makes backspace work as expected
-# "^?" == Backspace
-bindkey "^?" backward-delete-char
-
+# Use Emacs keybindings
+bindkey -e
