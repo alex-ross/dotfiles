@@ -58,11 +58,9 @@ set statusline+=%* " Resets highlight group to User
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              General settings                           {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set encoding=utf-8 " Default encoding
 set visualbell     " No sounds
 set mouse=a        " Lets you set marker and select text using mouse
 set hidden         " Allows buffers to exists in background as hidden
-set lazyredraw     " Redraw after macros and not during
 set backspace=indent,eol,start
 set nrformats-=octal
 set autoread
@@ -100,21 +98,13 @@ set smartcase            " Don't ignore case when uppercase char is present.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          Text editing improvements                      {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set spell           " Turns on spell check
 set spelllang=en_us " Default spell language
-
-" Makes copy and paste behave normal
-set pastetoggle=<F2>
-set clipboard+=unnamed
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            General key mapping                          {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <C-s> <esc>:w<CR>
-imap <C-s> <esc>:w<CR>
-
 " Tabs
 " ====
 nnoremap tn :tabnew<CR>
@@ -133,6 +123,8 @@ function! ToggleSpellLang()
   endif
 endfunction
 nnoremap <leader>sl :call ToggleSpellLang()<CR>
+nnoremap <leader>ss :set spell!<CR>
+
 
 " Enter special chars with <C-d>. <C-k> is taken to swap panes.
 inoremap <C-d> <C-k>
@@ -163,8 +155,6 @@ command! -bang Wa wa<bang>
 command! -bang WA wa<bang>
 command! -bang Wq wq<bang>
 command! -bang WQ wq<bang>
-
-command! -nargs=* Wrap set wrap linebreak nolist
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            Turn off swap files                          {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -199,6 +189,7 @@ set linebreak    "Wrap lines at convenient points
 "                                   Folds                                 {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set foldmethod=manual
+set foldlevelstart=1
 set foldnestmax=3       "deepest fold is 3 levels
 
 " Default foldtext
@@ -235,12 +226,6 @@ set wildignore+=*.png,*.jpg,*.gif
 
 set wildmenu
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                 Scrolling                               {{{1
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-set sidescroll=1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                    Tags                                 {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! JumpToTag()
@@ -256,25 +241,6 @@ nnoremap <leader>gst :silent! call JumpToTagInSplit()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              Other functions                            {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Extract to variable
-" original source: https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
-function! ExtractVariable() " {{{2
-  let name = input("Variable name: ")
-  if name == ''
-    return
-  endif
-  " Reenter visual mode
-  normal! gv
-
-  " Replace selected text with the variable name
-  exec "normal c" . name
-  " Define the variable on the line above
-  exec "normal! O" . name . " = "
-  " Paste the original selected text to be the variable value
-  normal! $p
-endfunction " }}}
-vnoremap <leader>rv :call ExtractVariable()<cr>
-
 " Removes trailing whitespace
 function! s:StripTrailingWhitespaces() " {{{2
   " Prepare, save last search and cursor position
@@ -298,7 +264,7 @@ function! <SID>SynStack() " {{{2
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunction " }}}
-nmap <leader>ss :call <SID>SynStack()<CR>
+nmap <leader>hs :call <SID>SynStack()<CR>
 
 function! Todo()
   e ~/Dropbox/todo/todo.txt
