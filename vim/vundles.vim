@@ -44,7 +44,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'godlygeek/tabular'
 Bundle 'ervandew/supertab'
-Bundle 'SirVer/ultisnips'
 Bundle 'tpope/vim-abolish'
 
 " Third part applications                                                 {{{1
