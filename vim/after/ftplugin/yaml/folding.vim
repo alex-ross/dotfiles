@@ -36,5 +36,6 @@ endfunction
 setlocal foldmethod=expr
 setlocal foldexpr=YamlFoldMethod(v:lnum)
 setlocal foldtext=YamlFoldText()
+setlocal foldlevelstart=0
 
 let b:undo_ftplugin = "setlocal foldtext< foldmethod< foldexpr< foldcolumn<"
