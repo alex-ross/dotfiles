@@ -20,8 +20,8 @@ fi
 # Editors                                                                   {{{1
 # ------------------------------------------------------------------------------
 export EDITOR='vim'
-export VISUAL='vim'
-export GIT_EDITOR='vim'
+export VISUAL=$EDITOR
+export GIT_EDITOR=$EDITOR
 export PAGER='less'
 
 # Language                                                                  {{{1

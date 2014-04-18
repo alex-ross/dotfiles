@@ -125,23 +125,44 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 function set-prompt {
-  vimmode_prefix=$1
-  vimmode_suffix=$2
+  vimmode_suffix=$1
   if [[ $TERM == 'dumb' ]]; then
-    viminfo="${VIM:+"[vim] "}"
+    viminfo="${VIM:+" [vim]"}"
   else
-    viminfo="${VIM:+"[%B%F{magenta}vim%b%f] "}"
+    viminfo="${VIM:+" [%B%F{magenta}vim%b%f]"}"
   fi
-  host="%m"
-  PROMPT="$vimmode_prefix$viminfo$host$vimmode_suffix"
-  PROMPT="$viminfo$host$vimmode_suffix"
+  PROMPT="%~$viminfo$vimmode_suffix"
 }
 
 # Show current directory in right prompt
-RPROMPT='| %~'
+# RPROMPT='| %~'
 
 # Init prompt
-set-prompt $viminsert_prefix $viminsert_suffix
+set-prompt $viminsert_suffix
 
 # Use Emacs keybindings
-bindkey -e
+# Key bindings                                                              {{{1
+# ------------------------------------------------------------------------------
+# User vi key bindings
+bindkey -v
+
+# Edit command line in $EDITOR when 'v' is pressed in command/normal mode
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd "v" edit-command-line
+
+# Undo with 'u'
+bindkey -M vicmd "u" undo
+# Redo with '^r'
+bindkey -M vicmd "\C-r" redo
+
+# Search in history
+bindkey -M vicmd "?" history-incremental-search-backward
+bindkey -M vicmd "/" history-incremental-search-forward
+
+# Makes delete work as expected
+# "^[[3~" == Delete
+bindkey "^[[3~" delete-char
+# Makes backspace work as expected
+# "^?" == Backspace
+bindkey "^?" backward-delete-char
