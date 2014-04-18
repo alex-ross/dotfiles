@@ -31,9 +31,11 @@ au VimResized * :wincmd =
 
 syntax reset
 syntax enable
+" Base16
 set background=dark
-colorscheme lucius
-LuciusDark
+let base16colorspace=256
+colorscheme base16-default
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 Statusline                              {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -50,11 +52,6 @@ set statusline+=%{SpellLangFlag()} " Spell language flag
 set statusline+=%=                 " Switch to right side
 set statusline+=\ Line:%4l/%-4L    " Line number
 set statusline+=\ Column:%3v\      " Column number
-
-" Syntastic status flag
-set statusline+=%#ErrorMsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%* " Resets highlight group to User
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              General settings                           {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -71,17 +68,8 @@ if !empty(&viminfo)
   set viminfo^=!
 endif
 
-set scrolloff=1
-set sidescrolloff=5
-
 set ttimeout
 set ttimeoutlen=50
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
