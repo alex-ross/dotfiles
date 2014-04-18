@@ -100,7 +100,7 @@ alias annomigrate="bundle exec rake db:migrate && bundle exec rake db:test:prepa
 # todo.txt
 if which todo.sh > /dev/null; then
   alias t='todo.sh'
-  alias tedit='vim ~/Dropbox/todo/todo.txt'
+  alias tedit="$EDITOR ~/Dropbox/todo/todo.txt"
 fi
 
 # Prompt                                                                    {{{1
