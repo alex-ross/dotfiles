@@ -14,9 +14,13 @@ stty stop undef
 
 # Base16 shell
 # --------------
-#BASE16_SCHEME="default"
-#BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
-#[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+if [ -n "$INSIDE_EMACS" ]; then
+
+else
+  BASE16_SCHEME="default"
+  BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
+  [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+fi
 
 # Rbenv                                                                     {{{1
 # ------------------------------------------------------------------------------
