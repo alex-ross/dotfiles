@@ -11,8 +11,8 @@ let mapleader=","          " Set leaderkey
 let maplocalleader=";"
 
 " Load vundle plugins
-if filereadable(expand("~/.vim/vundles.vim"))
-  source ~/.vim/vundles.vim
+if filereadable(expand("~/.vim/bundles.vim"))
+  source ~/.vim/bundles.vim
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              Visual settings                            {{{1

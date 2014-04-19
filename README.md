@@ -17,8 +17,8 @@ Vim plugins are managed through vundle. You'll need to install vundle to get
 them.
 
 ```bash
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-Run :BundleInstall in vim.
+mkdir -p ~/.vim/bundle
+git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 ```
 
 ### 3. Zsh
