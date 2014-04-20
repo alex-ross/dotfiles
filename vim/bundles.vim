@@ -21,6 +21,9 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'rking/ag.vim'
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 
 " General text editing improvements                                       {{{1
 " ----------------------------------------------------------------------------
