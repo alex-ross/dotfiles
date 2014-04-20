@@ -31,7 +31,6 @@ NeoBundle 'tomtom/tcomment_vim.git'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'godlygeek/tabular'
-NeoBundle 'ervandew/supertab'
 NeoBundle 'tpope/vim-abolish'
 
 " Cosmetics, color schemes, powerline...                                  {{{1
