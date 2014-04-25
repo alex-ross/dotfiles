@@ -21,9 +21,7 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'rking/ag.vim'
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'ervandew/supertab'
 NeoBundle 'rizzatti/dash.vim', { 'depends' : 'rizzatti/funcoo.vim' }
 
 " General text editing improvements                                       {{{1
