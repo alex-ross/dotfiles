@@ -34,10 +34,6 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'tpope/vim-abolish'
 
-" Cosmetics, color schemes, powerline...                                  {{{1
-" ----------------------------------------------------------------------------
-NeoBundle "chriskempson/base16-vim"
-
 " Additional syntaxes                                                     {{{1
 " ----------------------------------------------------------------------------
 NeoBundle 'vim-ruby/vim-ruby'

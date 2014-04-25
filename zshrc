@@ -11,17 +11,6 @@ export PATH=$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:$PATH
 stty -ixon
 stty stop undef
 
-
-# Base16 shell
-# --------------
-if [ -n "$INSIDE_EMACS" ]; then
-
-else
-  BASE16_SCHEME="default"
-  BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
-  [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
-fi
-
 # Rbenv                                                                     {{{1
 # ------------------------------------------------------------------------------
 if [[ -s "${ZDOTDIR:-$HOME}/.rbenv/bin" ]]; then
