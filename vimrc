@@ -141,6 +141,7 @@ inoremap <C-d> <C-k>
 " Cursor should be positioned so you only need to write something like
 " search/replace and then hit enter.
 nnoremap <leader>/ :%s/\v/gc<Left><Left><Left>
+vnoremap <leader>/ "ty:%s/\v<C-r>t/gc<Left><Left><Left>
 
 " Toggle relative line numbers
 nnoremap <leader>l :set relativenumber!<CR>
