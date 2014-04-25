@@ -31,6 +31,8 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'Townk/vim-autoclose'
 
 " Additional syntaxes                                                     {{{1
 " ----------------------------------------------------------------------------
