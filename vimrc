@@ -18,7 +18,6 @@ endif
 "                              Visual settings                            {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set number                        " Show line numbers
-set relativenumber                " Use relative numbers
 set colorcolumn=+1
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set list
