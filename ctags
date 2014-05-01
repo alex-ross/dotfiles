@@ -3,6 +3,9 @@
 --exclude=.git
 --exclude=backups
 --exclude=*.min.js
+--exclude=log
+--exclude=node_modules
+--exclude=bower_components
 
 --langdef=coffee
 --langmap=coffee:.coffee
