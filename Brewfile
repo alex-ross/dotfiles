@@ -2,6 +2,8 @@
 update
 
 install wget
+install git
+install hub
 
 # Editors
 install emacs --cocoa --use-git-head --HEAD
