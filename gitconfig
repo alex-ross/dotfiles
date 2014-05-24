@@ -21,6 +21,8 @@
   l = log --pretty='format:%C(yellow)%h %C(blue)%ad %C(reset)%s%C(red)%d %C(green)%an%C(reset), %C(cyan)%ar' --date=short
 	conflicts = !git ls-files -u | cut -f 2 | sort -u
   up = !git fetch origin && git rebase origin/master
+  up-this = !git fetch origin && git rebase origin/$(git current-branch)
+  up-upstream = !git fetch upstream && git rebase upstream/master
   ptrack = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
   pr = !hub pull-request
   current-branch = rev-parse --abbrev-ref HEAD
