@@ -1,5 +1,34 @@
 # Use vi mode to navigate
 set editing-mode vi
+set keymap vi
+set show-mode-in-prompt on
 
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set bell-style none
 
-# set keymap vi-move
+$if mode=vi
+    set keymap vi-insert
+    "\C-l": clear-screen
+    "\C-p": history-search-backward
+    "\C-n": history-search-forward
+    # alt dot cycles through last argument
+    "\e.":yank-last-arg
+
+    set keymap vi-command
+    "D":kill-line
+    "dw": kill-word
+    "dd": kill-whole-line
+    "db": backward-kill-word
+    "cc": "ddi"
+    "cw": "dwi"
+    "cb": "dbi"
+    "diw": "lbdw"
+    "yiw": "lbyw"
+    "ciw": "lbcw"
+    "diW": "lBdW"
+    "yiW": "lByW"
+    "ciW": "lBcW"
+    "gg": beginning-of-history
+    "G": end-of-history
+$endif
