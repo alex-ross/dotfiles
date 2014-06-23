@@ -10,12 +10,9 @@ else
   export IS_REMOTE=true
 fi
 
-
-
 # Colors ----------------------------------------------------------
-# export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
-export CLICOLOR=1 
+export CLICOLOR=1
 
 if [ "$OS" = "linux" ] ; then
   alias ls='ls --color=auto' # For linux, etc
@@ -71,7 +68,7 @@ fi
 # Rbenv
 # =====
 if [[ -s "$HOME/.rbenv/bin" ]]; then
-  export PATH="${ZDOTDIR:-$HOME}/.rbenv/bin:$PATH"
+  export PATH="$HOME/.rbenv/bin:$PATH"
 fi
 if [[ -s "$HOME/.rbenv/plugins/ruby-build/bin" ]]; then
   export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
@@ -85,6 +82,8 @@ if which rbenv > /dev/null; then
   fi
   eval "$(rbenv init -)"
 fi
+
+export PATH="$HOME/.bin:$PATH"
 
 
 # Less                                                                      {{{1
@@ -117,10 +116,6 @@ if which todo.sh > /dev/null; then
   alias t='todo.sh'
   alias tedit="$EDITOR ~/Dropbox/todo/todo.txt"
 fi
-
-# Prompt -----------------------------------------------------------------------
-# PS1="\`if [ \$? = 0 ]; then echo \[\e[33m\]^_^\[\e[0m\]; else echo \[\e[31m\]O_O\[\e[0m\]; fi\`[\u@\h:\w]\[\e[33m\]\$\[\e[0m\] "
-
 
 if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
   shopt -s checkwinsize # After each command, checks the windows size and changes lines and columns
@@ -156,10 +151,6 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
   export PS3='#? '   # Prompt 3
   export PS4='+'     # Prompt 4
 fi
-
-# Keybindings
-#############
-source ~/.fzf.bash
 
 # Completion -------------------------------------------------------
 # Turn on advanced bash completion if the file exists
