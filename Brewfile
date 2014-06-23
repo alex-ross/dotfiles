@@ -18,6 +18,8 @@ tap caskroom/cask
 install brew-cask
 
 cask install google-chrome
+cask install vagrant
+cask install virtualbox
 
 # Quickloog plugins
 # -----------------
