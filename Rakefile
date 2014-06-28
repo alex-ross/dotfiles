@@ -1,4 +1,7 @@
+$: << 'lib'
 require 'rake'
+require 'os'
+require 'tasks/osx'
 
 desc "Symlink files into user's home directory"
 task :symlink do
@@ -39,7 +42,9 @@ namespace :bin do
   end
 end
 
-task default: [:symlink, :"tmp:create", :"bin:executable"]
+default_tasks = [:symlink, :"tmp:create", :"bin:executable"]
+default_tasks << :"osx:default" if OS.osx?
+task default: default_tasks
 
 def replace_file(file)
   system %Q{rm "$HOME/.#{file}"}
@@ -60,5 +65,6 @@ def files_to_ignore
     LICENSE
     id_dsa.pub
     id_rsa.pub
+    lib
   )
 end
