@@ -21,20 +21,6 @@ mkdir -p ~/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 ```
 
-### 3. Zsh
-Note: Install zsh before continue. I wont cover how to do it here.
-
-```bash
-# launch zsh
-zsh
-
-# Set Zsh as default shell
-chsh -s /bin/zsh
-
-# Reload shell environment
-exec -l $SHELL
-```
-
 Done!
 
 ## Font
