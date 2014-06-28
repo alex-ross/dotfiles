@@ -1,50 +1,45 @@
 require 'rake'
 
-desc "install the dot files into user's home directory"
-task :install do
+desc "Symlink files into user's home directory"
+task :symlink do
   replace_all = false
-  Dir['*'].each do |file|
-    next if %w[Rakefile README LICENSE id_dsa.pub id_rsa.pub].include? file
+  files = Dir["*"]
+  files.reject! { |file| files_to_ignore.include?(file) }
 
-    if File.exist?(File.join(ENV['HOME'], ".#{file}"))
-      if replace_all
-        replace_file(file)
-      else
-        print "overwrite ~/.#{file}? [ynaq] "
-        case $stdin.gets.chomp
-        when 'a'
-          replace_all = true
-          replace_file(file)
-        when 'y'
-          replace_file(file)
-        when 'q'
-          exit
-        else
-          puts "skipping ~/.#{file}"
-        end
-      end
+  files.each do |file|
+    next link_file(file) unless File.exist?(File.join(ENV["HOME"], ".#{file}"))
+    next replace_file(file) if replace_all
+
+    print "Overwrite '~/.#{file}'? [ynaq]"
+    case $stdin.gets.chomp
+    when "a"
+      replace_all = true
+      replace_file(file)
+    when "y"
+      replace_file(file)
+    when "q"
+      exit
     else
-      link_file(file)
+      puts "Skipping '~/.#{file}'"
     end
   end
-
-  # Handle ssh pubkey on its own
-  puts "Linking public ssh key"
-  %w(id_dsa.pub id_rsa.pub).each do |file|
-    File.exist?(file) or next
-    print "Link ssh key #{file}? [yn] "
-    $stdin.gets.chomp == 'y' and link_public_ssh_key(file)
-  end
-
-  # Need to do this to make vim use RVM's ruby version
-  if File.exist?('/etc/zshenv')
-    puts "Moving zshenv to zshrc"
-    system %Q{sudo mv /etc/zshenv /etc/zshrc}
-  end
-
-  system %Q{mkdir -p ~/.tmp}
-  make_bin_executeable
 end
+
+namespace :tmp do
+  desc "Creates directory '~/.tmp/' unless it exists"
+  task :create do
+    system %Q{mkdir -p ~/.tmp}
+  end
+end
+
+namespace :bin do
+  desc "Makes all files in '~/.bin/' executable"
+  task :executable do
+    system('chmod -R u+x bin')
+  end
+end
+
+task default: [:symlink, :"tmp:create", :"bin:executable"]
 
 def replace_file(file)
   system %Q{rm "$HOME/.#{file}"}
@@ -56,12 +51,14 @@ def link_file(file)
   system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
 end
 
-def link_public_ssh_key(file)
-  puts "linking ~/.ssh/#{file}"
-  system %Q{rm "$HOME/.ssh/#{file}"}
-  system %Q{ln -s "$PWD/#{file}" "$HOME/.ssh/#{file}"}
-end
-
-def make_bin_executeable
-  system('chmod -R u+x bin')
+def files_to_ignore
+  %w(
+    Rakefile
+    Brewfile
+    ctags
+    README
+    LICENSE
+    id_dsa.pub
+    id_rsa.pub
+  )
 end
