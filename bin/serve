@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+ruby -run -e httpd $PWD -p 8888
