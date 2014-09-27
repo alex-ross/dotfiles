@@ -23,6 +23,7 @@
   up = !git fetch origin && git rebase origin/master
   up-this = !git fetch origin && git rebase origin/$(git current-branch)
   up-upstream = !git fetch upstream && git rebase upstream/master
+  stash-up-pop = !git stash && git up && git stash pop
   ptrack = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
   pr = !hub pull-request
   current-branch = rev-parse --abbrev-ref HEAD
