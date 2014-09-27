@@ -6,8 +6,8 @@ install git
 install hub
 
 # Editors
-install emacs --cocoa --use-git-head --HEAD
 install macvim --override-system-vim --with-cscope --with-lua --with-python3 --HEAD
+install --HEAD https://raw.github.com/neovim/neovim/master/neovim.rb
 
 # Symlink gui applications like macvim and emacs
 linkapps
@@ -18,8 +18,13 @@ tap caskroom/cask
 install brew-cask
 
 cask install google-chrome
-cask install vagrant
+
+# Install Vagrant and docker
+# ==========================
+# Needed for both
 cask install virtualbox
+
+cask install vagrant
 
 # Quickloog plugins
 # -----------------

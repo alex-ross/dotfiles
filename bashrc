@@ -47,7 +47,7 @@ alias colorslist="set | egrep 'COLOR_\w*'"  # lists all the colors
 [[ "$OSTYPE" == darwin* ]] && export BROWSER="open"
 
 # Editor -----------------------------------------------------------------------
-export EDITOR='vim'
+export EDITOR='nvim'
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
 export PAGER='less'
