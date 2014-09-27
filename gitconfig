@@ -1,6 +1,6 @@
 [user]
   name = Alexander Ross
-  email = izepax@gmail.com
+  email = alex@aross.se
 [core]
   editor = vim
   excludesfile = /Users/ross/.gitignore
