@@ -20,6 +20,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Colorscheme
 Plugin 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'L9'
 Plugin 'FuzzyFinder'
@@ -74,8 +75,12 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-let g:rehash256 = 1
-colorscheme molokai
+"let g:rehash256 = 1
+"colorscheme molokai
+syntax enable
+set background=light
+let g:solarized_termcolors=256
+colorscheme solarized
 
 set backspace=indent,eol,start
 set showbreak=\ ↪\ 
