@@ -9,6 +9,10 @@ Session.vim
 #############################
 *.sublime-workspace
 
+# Ignore common IDE files
+# #######################
+.idea/
+
 # Ignore OSX files
 ##################
 .DS_Store

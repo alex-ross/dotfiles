@@ -3,7 +3,8 @@
   email = alex@aross.se
 [core]
   editor = vim
-  excludesfile = /Users/ross/.gitignore
+	excludesfile = /Users/ross/.gitignore
+	autocrlf = input
 [color]
   ui = auto
 [alias]
@@ -19,6 +20,7 @@
   ap = add -u -p
   aa = !git add -u && git add . && git status
   l = log --pretty='format:%C(yellow)%h %C(blue)%ad %C(reset)%s%C(red)%d %C(green)%an%C(reset), %C(cyan)%ar' --date=short
+  log-graph = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(reset)%s%C(reset) %C(dim black)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
   conflicts = !git ls-files -u | cut -f 2 | sort -u
   up = !git fetch origin && git rebase origin/master
   up-this = !git fetch origin && git rebase origin/$(git current-branch)
