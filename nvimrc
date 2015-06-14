@@ -25,11 +25,13 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'L9'
 Plugin 'FuzzyFinder'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'bogado/file-line'
 
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'benmills/vim-golang-alternate'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'Shutnik/jshint2.vim'
 " Plugin 'ervandew/supertab' " autocomplete and indent with tab
 Plugin 'Shougo/neocomplcache.vim'
 Plugin 'groenewege/vim-less'
@@ -75,12 +77,12 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-"let g:rehash256 = 1
-"colorscheme molokai
-syntax enable
-set background=light
-let g:solarized_termcolors=256
-colorscheme solarized
+let g:rehash256 = 1
+colorscheme molokai
+"syntax enable
+"set background=light
+"let g:solarized_termcolors=256
+"colorscheme solarized
 
 set backspace=indent,eol,start
 set showbreak=\ ↪\ 

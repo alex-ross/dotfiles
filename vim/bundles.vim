@@ -23,6 +23,17 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'rizzatti/dash.vim', { 'depends' : 'rizzatti/funcoo.vim' }
+NeoBundle 'majutsushi/tagbar'
+
+" Colorschemes                                                            {{{1
+" ---------------------------------------------------------------------------
+" NeoBundle 'vim-scripts/Wombat'
+NeoBundle 'michalbachowski/vim-wombat256mod'
+NeoBundle 'tpope/vim-vividchalk'
+NeoBundle 'reedes/vim-colors-pencil'
+NeoBundle 'twerth/ir_black'
+" NeoBundle 'cschlueter/vim-wombat'
+NeoBundle 'tomasr/molokai'
 
 " General text editing improvements                                       {{{1
 " ----------------------------------------------------------------------------

@@ -1,0 +1,21 @@
+" This vimrc file is for RubyMine
+
+let mapleader=","          " Set leaderkey
+let maplocalleader=";"
+
+set visualbell
+set noerrorbells
+
+set backspace=indent,eol,start
+nnoremap <leader>l :set relativenumber!<CR>
+
+" Search
+set hlsearch             " Highlight search results.
+set incsearch            " Incremental searching.
+set showmatch            " Jump to matches when entering regexp.
+
+" Easier navigation
+noremap H ^
+vnoremap H ^
+noremap L $
+vnoremap L g_

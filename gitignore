@@ -37,6 +37,8 @@ Icon
 # Ignore ctags
 tags
 ctags
+.tags
+.tags_sorted_by_file
 
 # Ignore common swap and backup files from other editors
 *~
