@@ -1,2 +1,0 @@
-export TODO_DIR="$HOME/Dropbox/todo"
-export TODO_FILE="$TODO_DIR/todo.txt"
