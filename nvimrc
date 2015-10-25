@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved, required
 set encoding=utf-8
-let mapleader=","          " Set leaderkey
+let mapleader=" "          " Set leaderkey
 let maplocalleader=";"
 
 filetype off                  " required
