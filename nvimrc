@@ -20,7 +20,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " Colorscheme
 Plugin 'tomasr/molokai'
-Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'L9'
 Plugin 'FuzzyFinder'
@@ -40,7 +39,6 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/nerdtree'
 Plugin 'slim-template/vim-slim'
 Plugin 'sunaku/vim-ruby-minitest'
 Plugin 'terryma/vim-multiple-cursors'
@@ -201,6 +199,11 @@ let g:multi_cursor_next_key='<C-S-n>'
 let g:multi_cursor_prev_key='<C-S-p>'
 let g:multi_cursor_skip_key='<C-S-x>'
 let g:multi_cursor_quit_key='<Esc>'
+
+" Netrw, explorer
+let g:netrw_liststyle=3
+map <leader>k :Explore<cr>
+
 
 
 " NeoComplCache
